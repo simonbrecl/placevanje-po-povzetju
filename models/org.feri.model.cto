@@ -9,13 +9,12 @@ concept Naslov {
   o String ulica
   o String hisnaSt
 }
-abstract participant Oseba identified by osebaID {
-  o String osebaID
+
+
+participant Kupec identified by kupecID {
+  o String kupecID
   o String ime
   o String priimek
-}
-
-participant Kupec extends Oseba {
   o String email
   o Naslov naslov
   o Double stanje
@@ -48,7 +47,11 @@ participant PostnaEnota identified by postnaEnotaID {
   --> Postar[] postarji // postarji zaposleni na tej enoti
 }
 
-participant Postar extends Oseba {}
+participant Postar identified by postarID {
+  o String postarID
+  o String ime
+  o String priimek
+}
 
 asset Izdelek identified by izdelekID {
   o String izdelekID

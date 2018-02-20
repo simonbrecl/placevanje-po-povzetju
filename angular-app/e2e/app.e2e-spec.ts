@@ -1,17 +1,17 @@
 import { AngularTestPage } from './app.po';
 import { browser, element, by } from 'protractor';
 
-describe('Starting tests for angular-app', function() {
+describe('Starting tests for angular-zs', function() {
   let page: AngularTestPage;
 
   beforeEach(() => {
     page = new AngularTestPage();
   });
 
-  it('website title should be angular-app', () => {
+  it('website title should be angular-zs', () => {
     page.navigateTo('/');
     return browser.getTitle().then((result)=>{
-      expect(result).toBe('angular-app');
+      expect(result).toBe('angular-zs');
     })
   });
 

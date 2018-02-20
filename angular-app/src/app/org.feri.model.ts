@@ -9,12 +9,10 @@ import {Event} from './org.hyperledger.composer.system';
       ulica: string;
       hisnaSt: string;
    }
-   export abstract class Oseba extends Participant {
-      osebaID: string;
+   export class Kupec extends Participant {
+      kupecID: string;
       ime: string;
       priimek: string;
-   }
-   export class Kupec extends Oseba {
       email: string;
       naslov: Naslov;
       stanje: number;
@@ -43,7 +41,10 @@ import {Event} from './org.hyperledger.composer.system';
       hranjenjePosiljke: number;
       postarji: Postar[];
    }
-   export class Postar extends Oseba {
+   export class Postar extends Participant {
+      postarID: string;
+      ime: string;
+      priimek: string;
    }
    export class Izdelek extends Asset {
       izdelekID: string;
