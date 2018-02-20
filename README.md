@@ -3,6 +3,8 @@ Projekt v okviru Zimske šole FERI.
 
 Ukazi za namestitev:
 
+git clone https://gitlab.com/simonbrecl/placilo-po-povzetju
+
 cd fabric-tools
 
 ./startFabric.sh
