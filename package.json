@@ -1,0 +1,22 @@
+{
+  "name": "placilo-po-povzetju-network",
+  "version": "0.0.1",
+  "description": "Projekt pri Zimski soli FERI",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "author": "Simon Brecl",
+  "email": "simon.brecl@gmail.com",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "composer-admin": "latest",
+    "composer-client": "latest",
+    "composer-common": "latest",
+    "composer-connector-embedded": "latest",
+    "chai": "latest",
+    "eslint": "latest",
+    "istanbul": "latest",
+    "mkdirp": "latest",
+    "mocha": "latest"
+  }
+}
