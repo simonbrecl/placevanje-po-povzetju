@@ -7,7 +7,7 @@
     "types": []
   },
   "exclude": [
-    "test.ts",
+    "angular-app.ts",
     "**/*.spec.ts"
   ]
 }

@@ -11,7 +11,7 @@
     ]
   },
   "files": [
-    "test.ts"
+    "angular-app.ts"
   ],
   "include": [
     "**/*.spec.ts",

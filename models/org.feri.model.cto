@@ -3,20 +3,16 @@
  */
 namespace org.feri.model
 
-concept Naslov {
-  o String kraj
-  o Integer postnaSt
-  o String ulica
-  o String hisnaSt
-}
-
 
 participant Kupec identified by kupecID {
   o String kupecID
   o String ime
   o String priimek
   o String email
-  o Naslov naslov
+  o String kraj
+  o Integer postnaSt
+  o String ulica
+  o String hisnaSt
   o Double stanje
   --> Banka banka
   --> Posiljka[] zgodovinaPlacil optional // se avtomatsko vnese ko se posiljka obdela
@@ -25,7 +21,10 @@ participant Kupec identified by kupecID {
 participant Prodajalec identified by prodajalecID {
   o String prodajalecID
   o String naziv
-  o Naslov naslov
+  o String kraj
+  o Integer postnaSt
+  o String ulica
+  o String hisnaSt
   o Double stanje
   o Integer vraciloDnevi // stevilo dni od prejema, v katerih lahko kupec vrne narocilo brez posledic
 }
@@ -33,8 +32,11 @@ participant Prodajalec identified by prodajalecID {
 participant Banka identified by bankaID {
   o String bankaID
   o String naziv
-  o Naslov naslov
-  --> Kupec[] komitenti optional 
+  o String kraj
+  o Integer postnaSt
+  o String ulica
+  o String hisnaSt
+  --> Kupec[] komitenti optional
   o Double dovoljenProcent // dovoljen procent neplacanih posiljk, s katerim banka se vedno zaupa kupcu
   o Double odobrenZnesekDo // do tega zneska banka, kljub slabi zgodovini omogoca kupcu narocila
 }
@@ -42,7 +44,10 @@ participant Banka identified by bankaID {
 participant PostnaEnota identified by postnaEnotaID {
   o String postnaEnotaID
   o String naziv
-  o Naslov naslov
+  o String kraj
+  o Integer postnaSt
+  o String ulica
+  o String hisnaSt
   o Integer hranjenjePosiljke // stevilo dni, pred vrnitvijo prodajalcu
   --> Postar[] postarji // postarji zaposleni na tej enoti
 }
@@ -59,7 +64,7 @@ asset Izdelek identified by izdelekID {
   o Integer kolicina
   o Double cena
   --> Prodajalec prodajalec
-} 
+}
 
 asset Narocilo identified by narociloID {
   o String narociloID
@@ -67,7 +72,7 @@ asset Narocilo identified by narociloID {
   --> Kupec kupec
   o Double celotenZnesek optional // znesek se sam izracuna
   o StanjeNarocila stanjeNarocila optional // stanje narocila lahko spremeni/vnese samo banka
-  o DateTime casUstvarjeno 
+  o DateTime casUstvarjeno
   o LokacijaPrevzema lokacijaPrevzema // kupec lahko prevzame posiljko na postni enoti ali se mu dostavi na dom
 }
 
@@ -89,7 +94,7 @@ asset Posiljka identified by posiljkaID {
   o StanjePosiljke stanjePosiljke
   o DateTime zadnjaSprememba
   --> PostnaEnota postnaEnota
-} 
+}
 
 enum StanjePosiljke {
   o POTEKA
@@ -100,8 +105,8 @@ enum StanjePosiljke {
 }
 
 enum OdlocitevKupca {
-  o PLACILO 
-  o NEPLACILO 
+  o PLACILO
+  o NEPLACILO
   o ZAVRNITEV
 }
 
@@ -116,7 +121,7 @@ transaction PlaciloNaDomu {
   --> Postar postar
   o OdlocitevKupca namenStranke // ali zeli kupec placati/neplacati, zavrniti posiljko
 }
-// kupec placa posiljko, vendar kasneje vrne posiljko 
+// kupec placa posiljko, vendar kasneje vrne posiljko
 transaction VraciloPosiljke {
   --> Posiljka posiljka
 }
@@ -128,7 +133,7 @@ transaction PrihodNaPostnoEnoto {
 // v primeru, da kupec nima denarja ali ga ni doma ob dostavi, se posiljka vrne na postno enoto
 transaction PrevzemNaPostniEnoti {
     --> Posiljka posiljka
-    o OdlocitevKupca namenStranke 
+    o OdlocitevKupca namenStranke
 }
 
 transaction TestniPodatki {}
@@ -138,7 +143,7 @@ event NarociloEvent {
   o String sporocilo
   --> Narocilo narocilo
 }
- 
+
 // event se sprozi po tem, ko se izvede placilo/neplacilo, zavrnitev posiljke
 event PlaciloEvent {
   o String sporocilo
