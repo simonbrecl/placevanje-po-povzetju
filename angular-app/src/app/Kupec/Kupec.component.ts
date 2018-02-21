@@ -13,20 +13,20 @@ export class KupecComponent implements OnInit {
 
   myForm: FormGroup;
 
-  private allparticipants;
+  private allParticipants;
   private participant;
   private currentId;
   private errorMessage;
-          kupecID = new FormControl("", Validators.required);
-          ime = new FormControl("", Validators.required);
-          priimek = new FormControl("", Validators.required);
-          email = new FormControl("", Validators.required);
-          kraj = new FormControl("", Validators.required);
-          postnaSt = new FormControl("", Validators.required);
-          ulica = new FormControl("", Validators.required);
-          hisnaSt = new FormControl("", Validators.required);
-          stanje = new FormControl("", Validators.required);
-          banka = new FormControl("", Validators.required);
+  kupecID = new FormControl("", Validators.required);
+  ime = new FormControl("", Validators.required);
+  priimek = new FormControl("", Validators.required);
+  email = new FormControl("", Validators.required);
+  kraj = new FormControl("", Validators.required);
+  postnaSt = new FormControl("", Validators.required);
+  ulica = new FormControl("", Validators.required);
+  hisnaSt = new FormControl("", Validators.required);
+  stanje = new FormControl("", Validators.required);
+  banka = new FormControl("", Validators.required);
 
   constructor(private serviceKupec:KupecService, fb: FormBuilder) {
     this.myForm = fb.group({
@@ -155,7 +155,7 @@ export class KupecComponent implements OnInit {
   }
 
 
-   UpdateParticipant(form: any): Promise<any> {
+   updateParticipant(form: any): Promise<any> {
     this.participant = {
       $class: "org.feri.model.Kupec",
 
@@ -173,7 +173,7 @@ export class KupecComponent implements OnInit {
 
     };
 
-    return this.serviceKupec.UpdateParticipant(form.get("kupecID").value,this.participant)
+    return this.serviceKupec.updateParticipant(form.get("kupecID").value,this.participant)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;

@@ -26,7 +26,7 @@ export class KupecService {
       return this.dataService.add(this.NAMESPACE, itemToAdd);
     }
 
-    public UpdateParticipant(id: any, itemToUpdate: any): Observable<Kupec> {
+    public updateParticipant(id: any, itemToUpdate: any): Observable<Kupec> {
       return this.dataService.update(this.NAMESPACE, id, itemToUpdate);
     }
 
