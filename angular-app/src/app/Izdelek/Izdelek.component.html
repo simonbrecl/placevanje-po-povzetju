@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addAssetModalLabel">Add Asset</h4>
+        <h4 class="modal-title" id="addAssetModalLabel">Dodaj vir</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
@@ -79,7 +79,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="updateAssetModalLabel">Update Asset</h4>
+        <h4 class="modal-title" id="updateAssetModalLabel">Posodobi</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
@@ -152,7 +152,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="deleteAssetModalLabel">Delete Asset</h4>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Zbrisi vir</h4>
       </div>
       <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
         <div class="modal-body">
@@ -169,14 +169,6 @@
 
 
 
-
-
-
-
-
-
-
-
 <div class="container">
 	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
 		<strong>Error:</strong> {{errorMessage}}
@@ -184,7 +176,7 @@
   <h1 id='assetName'>Izdelek</h1>
   <div class="row">
     <div class="col-md-12 text-right">
-      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Add Asset</button>
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Dodaj vir</button>
     </div>
   </div>
   <br>
@@ -222,9 +214,9 @@
                 <td>{{asset.prodajalec}}</td>
             
             <td>
-              <button (click)="getForm(asset.izdelekID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Update Asset</button>
+              <button (click)="getForm(asset.izdelekID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Posodobi</button>
 
-              <button (click)="setId(asset.izdelekID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Delete Asset</button>
+              <button (click)="setId(asset.izdelekID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Zbrisi vir</button>
             </td>
           </tr>
         </tbody>
