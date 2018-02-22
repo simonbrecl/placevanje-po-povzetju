@@ -4,11 +4,10 @@
 namespace org.feri.model
 
 
-participant Kupec identified by kupecID {
-  o String kupecID
+participant Kupec identified by email {
+  o String email
   o String ime
   o String priimek
-  o String email
   o String kraj
   o Integer postnaSt
   o String ulica
@@ -18,8 +17,7 @@ participant Kupec identified by kupecID {
   --> Posiljka[] zgodovinaPlacil optional // se avtomatsko vnese ko se posiljka obdela
 }
 
-participant Prodajalec identified by prodajalecID {
-  o String prodajalecID
+participant Prodajalec identified by naziv {
   o String naziv
   o String kraj
   o Integer postnaSt
@@ -29,8 +27,7 @@ participant Prodajalec identified by prodajalecID {
   o Integer vraciloDnevi // stevilo dni od prejema, v katerih lahko kupec vrne narocilo brez posledic
 }
 
-participant Banka identified by bankaID {
-  o String bankaID
+participant Banka identified by naziv {
   o String naziv
   o String kraj
   o Integer postnaSt
@@ -41,8 +38,7 @@ participant Banka identified by bankaID {
   o Double odobrenZnesekDo // do tega zneska banka, kljub slabi zgodovini omogoca kupcu narocila
 }
 
-participant PostnaEnota identified by postnaEnotaID {
-  o String postnaEnotaID
+participant PostnaEnota identified by naziv {
   o String naziv
   o String kraj
   o Integer postnaSt
@@ -61,7 +57,6 @@ participant Postar identified by postarID {
 asset Izdelek identified by izdelekID {
   o String izdelekID
   o String naziv
-  o Integer kolicina
   o Double cena
   --> Prodajalec prodajalec
 }
