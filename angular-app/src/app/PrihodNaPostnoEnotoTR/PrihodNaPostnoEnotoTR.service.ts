@@ -11,7 +11,7 @@ export class PrihodNaPostnoEnotoTRService {
 
 	private POSTAR: string = 'Postar';
     private POSILJKA: string = 'Posiljka';
-    private PLACILO_NA_DOMU: string = 'PlaciloNaDomu';
+    private PRIHOD_NA_POSTNO_ENOTO: string = 'PrihodNaPostnoEnoto';
 
     constructor(private PosiljkaService: DataService<Posiljka>, private PostarService: DataService<Postar>, private PrihodNaPostnoEnotoService: DataService<PrihodNaPostnoEnoto>) {
     };
@@ -25,7 +25,7 @@ export class PrihodNaPostnoEnotoTRService {
     }
 
     public PrihodNaPostnoEnoto(itemToAdd: any): Observable<PrihodNaPostnoEnoto> {
-        return this.PrihodNaPostnoEnotoService.add(this.PLACILO_NA_DOMU, itemToAdd);
+        return this.PrihodNaPostnoEnotoService.add(this.PRIHOD_NA_POSTNO_ENOTO, itemToAdd);
       }
 
 }
