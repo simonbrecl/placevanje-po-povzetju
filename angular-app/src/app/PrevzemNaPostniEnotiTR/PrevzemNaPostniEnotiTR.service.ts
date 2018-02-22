@@ -7,8 +7,9 @@ import {Posiljka, PrevzemNaPostniEnoti } from '../org.feri.model';
 import 'rxjs/Rx';
 
 @Injectable()
-export class PrevzemNaPostniEnotiTRService {
+export class PlaciloNaDomuTRService {
 
+	private POSTAR: string = 'Postar';
     private POSILJKA: string = 'Posiljka';
     private PREVZEM_NA_POSTNI_ENOTI: string = 'PrevzemNaPostniEnoti';
 
