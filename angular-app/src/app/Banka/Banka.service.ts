@@ -1,36 +1,35 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs/Observable';
-import { Kupec } from '../org.feri.model';
+import { Banka } from '../org.feri.model';
 import 'rxjs/Rx';
 
-// Can be injected into a constructor
 @Injectable()
-export class KupecService {
+export class BankaService {
 
 	
-	private NAMESPACE: string = 'Kupec';
+	private NAMESPACE: string = 'Banka';
 
-    constructor(private dataService: DataService<Kupec>) {
+    constructor(private dataService: DataService<Banka>) {
     };
 
-    public getAllKupec(): Observable<Kupec[]> {
+    public getAllBanka(): Observable<Banka[]> {
         return this.dataService.getAll(this.NAMESPACE);
     }
 
-    public getKupec(id: any): Observable<Kupec> {
+    public getBanka(id: any): Observable<Banka> {
       return this.dataService.getSingle(this.NAMESPACE, id);
     }
 
-    public addKupec(itemToAdd: any): Observable<Kupec> {
+    public addBanka(itemToAdd: any): Observable<Banka> {
       return this.dataService.add(this.NAMESPACE, itemToAdd);
     }
 
-    public updateKupec(id: any, itemToUpdate: any): Observable<Kupec> {
+    public updateBanka(id: any, itemToUpdate: any): Observable<Banka> {
       return this.dataService.update(this.NAMESPACE, id, itemToUpdate);
     }
 
-    public deleteKupec(id: any): Observable<Kupec> {
+    public deleteBanka(id: any): Observable<Banka> {
       return this.dataService.delete(this.NAMESPACE, id);
     }
 

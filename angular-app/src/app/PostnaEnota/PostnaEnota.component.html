@@ -1,0 +1,199 @@
+<div class="modal fade" id="addPostnaEnotaModal" tabindex="-1" role="dialog" aria-labelledby="addPostnaEnotaModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="addPostnaEnotaModalLabel">Add Participant</h4>
+        </div>
+        <form [formGroup]="myForm">
+          <div class="modal-body">
+  
+                <div class="form-group text-left">
+                  <label for="naziv">naziv</label>
+                    <input formControlName="naziv" type="text" class="form-control">  
+                </div>
+                
+                <div class="form-group text-left">
+                  <label for="kraj">kraj</label>
+                    <input formControlName="kraj" type="text" class="form-control">  
+                </div>
+
+                <div class="form-group text-left">
+                  <label for="postnaSt">postnaSt</label>
+                    <input formControlName="postnaSt" type="number" class="form-control">  
+                </div>
+
+                <div class="form-group text-left">
+                  <label for="ulica">ulica</label>
+                    <input formControlName="ulica" type="text" class="form-control">  
+                </div>
+
+                <div class="form-group text-left">
+                  <label for="hisnaSt">hisnaSt</label>
+                    <input formControlName="hisnaSt" type="text" class="form-control">  
+                </div>
+              
+                <div class="form-group text-left">
+                  <label for="hranjenjePosiljke">hranjenjePosiljke</label>
+                    <input formControlName="hranjenjePosiljke" type="number" class="form-control">
+                </div>
+
+                <div class="form-group text-left">
+                  <label for="postarji">postarji</label>
+                    <input formControlName="postarji" type="text" class="form-control">
+                </div>
+              
+              
+          </div>
+          <div class="modal-footer">
+            <button (click)="addPostnaEnota(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="updatePostnaEnotaModal" tabindex="-1" role="dialog" aria-labelledby="updatePostnaEnotaModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="updatePostnaEnotaModalLabel">Update Asset</h4>
+        </div>
+        <form [formGroup]="myForm">
+          <div class="modal-body">
+  
+              <div class="form-group text-left">
+                <label for="naziv">naziv</label>
+                  <input [ngModel]="naziv"formControlName="naziv" type="text" class="form-control">
+              </div>
+            
+              <div class="form-group text-left">
+                <label for="kraj">kraj</label>
+                  <input [ngModel]="kraj"formControlName="kraj" type="text" class="form-control">
+              </div>
+
+              <div class="form-group text-left">
+                <label for="postnaSt">postnaSt</label>
+                  <input [ngModel]="postnaSt"formControlName="postnaSt" type="number" class="form-control">
+              </div>
+
+              <div class="form-group text-left">
+                <label for="ulica">ulica</label>
+                  <input [ngModel]="ulica"formControlName="ulica" type="text" class="form-control">
+              </div>
+
+              <div class="form-group text-left">
+                <label for="hisnaSt">hisnaSt</label>
+                  <input [ngModel]="hisnaSt"formControlName="hisnaSt" type="text" class="form-control">
+              </div>
+                        
+              <div class="form-group text-left">
+                <label for="hranjenjePosiljke">hranjenjePosiljke</label>
+                  <input [ngModel]="hranjenjePosiljke"formControlName="hranjenjePosiljke" type="number" class="form-control">
+              </div>
+            
+              <div class="form-group text-left">
+                <label for="postarji">postarji</label>
+                  <input [ngModel]="postarji"formControlName="postarji" type="text" class="form-control">
+             </div>
+            
+          </div>
+          <div class="modal-footer">
+            <button (click)="updatePostnaEnota(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="deletePostnaEnotaModal" tabindex="-1" role="dialog" aria-labelledby="deletePostnaEnotaModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="deletePostnaEnotaModalLabel">Delete Asset</h4>
+        </div>
+        <form [formGroup]="myForm" (ngSubmit)="deletePostnaEnota()">
+          <div class="modal-body">
+            Are you sure you want to delete this asset?
+          </div>
+          <div class="modal-footer">
+            <button (click)="deletePostnaEnota()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+          <strong>Error:</strong> {{errorMessage}}
+      </div>
+    <h1 id='assetName'>PostnaEnota</h1>
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPostnaEnotaModal">Dodaj postno enoto</button>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-responsive table-striped">
+          <thead class="thead">
+            <tr class="thead-cols">
+              
+                  <th class="info">postnaEnotaID</th>
+    
+                  <th class="info">naziv</th>
+              
+                  <th class="info">kraj</th>
+
+                  <th class="info">postnaSt</th>
+
+                  <th class="info">ulica</th>
+
+                  <th class="info">hisnaSt</th>
+              
+                  <th class="info">hranjenjePosiljke</th>
+
+                  <th class="info">postarji</th>
+                                          
+                <th class="info">možnosti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let postnaenota of allPostnaEnota">
+  
+              
+                  <td>{{postnaenota.postnaEnotaID}}</td>
+              
+                  <td>{{postnaenota.naziv}}</td>
+              
+                  <td>{{postnaenota.kraj}}</td>
+
+                  <td>{{postnaenota.postnaSt}}</td>
+
+                  <td>{{postnaenota.ulica}}</td>
+
+                  <td>{{postnaenota.hisnaSt}}</td>
+              
+                  <td>{{postnaenota.hranjenjePosiljke}}</td>
+
+                  <td>{{postnaenota.postarji}}</td>
+                                          
+              <td>
+                <button (click)="getForm(PostnaEnota.postnaEnotaID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updatePostnaEnotaModal">Update Asset</button>
+  
+                <button (click)="setId(PostnaEnota.postnaEnotaID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostnaEnotaModal">Delete Asset</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

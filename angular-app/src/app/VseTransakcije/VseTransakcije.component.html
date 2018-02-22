@@ -1,0 +1,90 @@
+
+
+<div class="container align">
+
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+		<strong>Error:</strong> {{errorMessage}}
+	</div>
+
+  <div class="row">
+      <h2> Veriga blokov </h2>
+  </div>
+
+  <div class="row">
+    <br>
+  </div>
+
+  <div *ngIf="performedTransactions.length == 0 && systemTransactions.length == 0" class="row">
+      <h4>Ni transakcij</h4>
+    </div>
+
+  <div *ngIf="performedTransactions.length > 0" class="row" >
+    <h4>Izvedene transakcije</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Tip transakcije
+          </th>
+          <th>
+            ID transakcije
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of performedTransactions">
+          <td>
+            {{transaction.transactionType}}
+          </td>
+          <td>
+            {{transaction.transactionId}}
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="row">
+    <br>
+    <br>
+  </div>
+
+  <div *ngIf="systemTransactions.length > 0" class="row">
+    <h4>Sistemske transakcije</h4>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Tip transakcije
+          </th>
+          <th>
+            ID transakcije
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of systemTransactions">
+          <td>
+            {{transaction.transactionType}}
+          </td>
+          <td>
+            {{transaction.transactionId}}
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <br>
+    <br>
+  </div>
+
+
+</div>

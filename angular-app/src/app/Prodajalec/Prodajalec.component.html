@@ -1,0 +1,198 @@
+<div class="modal fade" id="addProdajalecModal" tabindex="-1" role="dialog" aria-labelledby="addProdajalecModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="addProdajalecModalLabel">Add Participant</h4>
+        </div>
+        <form [formGroup]="myForm">
+          <div class="modal-body">
+  
+                <div class="form-group text-left">
+                  <label for="naziv">naziv</label>
+                    <input formControlName="naziv" type="text" class="form-control">  
+                </div>
+                
+                <div class="form-group text-left">
+                  <label for="kraj">kraj</label>
+                    <input formControlName="kraj" type="text" class="form-control">  
+                </div>
+
+                <div class="form-group text-left">
+                  <label for="postnaSt">postnaSt</label>
+                    <input formControlName="postnaSt" type="number" class="form-control">  
+                </div>
+
+                <div class="form-group text-left">
+                  <label for="ulica">ulica</label>
+                    <input formControlName="ulica" type="text" class="form-control">  
+                </div>
+
+                <div class="form-group text-left">
+                  <label for="hisnaSt">hisnaSt</label>
+                    <input formControlName="hisnaSt" type="text" class="form-control">  
+                </div>
+              
+                <div class="form-group text-left">
+                  <label for="stanje">stanje</label>
+                    <input formControlName="stanje" type="number" class="form-control">
+                </div>
+                
+                <div class="form-group text-left">
+                  <label for="vraciloDnevi">dnevi za vracilo</label>
+                    <input formControlName="vraciloDnevi" type="number" class="form-control">
+                </div>
+              
+          </div>
+          <div class="modal-footer">
+            <button (click)="addProdajalec(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="updateProdajalecModal" tabindex="-1" role="dialog" aria-labelledby="updateProdajalecModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="updateProdajalecModalLabel">Update Asset</h4>
+        </div>
+        <form [formGroup]="myForm">
+          <div class="modal-body">
+  
+              <div class="form-group text-left">
+                <label for="naziv">naziv</label>
+                  <input [ngModel]="naziv"formControlName="naziv" type="text" class="form-control">
+              </div>
+            
+              <div class="form-group text-left">
+                <label for="kraj">kraj</label>
+                  <input [ngModel]="kraj"formControlName="kraj" type="text" class="form-control">
+              </div>
+
+              <div class="form-group text-left">
+                <label for="postnaSt">postnaSt</label>
+                  <input [ngModel]="postnaSt"formControlName="postnaSt" type="number" class="form-control">
+              </div>
+
+              <div class="form-group text-left">
+                <label for="ulica">ulica</label>
+                  <input [ngModel]="ulica"formControlName="ulica" type="text" class="form-control">
+              </div>
+
+              <div class="form-group text-left">
+                <label for="hisnaSt">hisnaSt</label>
+                  <input [ngModel]="hisnaSt"formControlName="hisnaSt" type="text" class="form-control">
+              </div>
+                        
+              <div class="form-group text-left">
+                <label for="stanje">stanje</label>
+                  <input [ngModel]="stanje"formControlName="stanje" type="number" class="form-control">
+              </div>
+            
+              <div class="form-group text-left">
+                <label for="vraciloDnevi">vraciloDnevi</label>
+                  <input [ngModel]="vraciloDnevi"formControlName="vraciloDnevi" type="number" class="form-control">
+             </div>
+            
+          </div>
+          <div class="modal-footer">
+            <button (click)="updateProdajalec(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="deleteProdajalecModal" tabindex="-1" role="dialog" aria-labelledby="deleteProdajalecModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="deleteProdajalecModalLabel">Delete Asset</h4>
+        </div>
+        <form [formGroup]="myForm" (ngSubmit)="deleteProdajalec()">
+          <div class="modal-body">
+            Are you sure you want to delete this asset?
+          </div>
+          <div class="modal-footer">
+            <button (click)="deleteProdajalec()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+          <strong>Error:</strong> {{errorMessage}}
+      </div>
+    <h1 id='assetName'>Prodajalec</h1>
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProdajalecModal">Dodaj prodajalca</button>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-responsive table-striped">
+          <thead class="thead">
+            <tr class="thead-cols">
+              
+                  <th class="info">prodajalecID</th>
+    
+                  <th class="info">naziv</th>
+              
+                  <th class="info">kraj</th>
+
+                  <th class="info">postnaSt</th>
+
+                  <th class="info">ulica</th>
+
+                  <th class="info">hisnaSt</th>
+              
+                  <th class="info">stanje</th>
+              
+                  <th class="info">vraciloDnevi</th>
+                            
+                <th class="info">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prodajalec of allProdajalec">
+  
+              
+                  <td>{{prodajalec.prodajalecID}}</td>
+              
+                  <td>{{prodajalec.naziv}}</td>
+              
+                  <td>{{prodajalec.kraj}}</td>
+
+                  <td>{{prodajalec.postnaSt}}</td>
+
+                  <td>{{prodajalec.ulica}}</td>
+
+                  <td>{{prodajalec.hisnaSt}}</td>
+              
+                  <td>{{prodajalec.stanje}}</td>
+              
+                  <td>{{prodajalec.vraciloDnevi}}</td>
+                            
+              <td>
+                <button (click)="getForm(prodajalec.prodajalecID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateProdajalecModal">Update Asset</button>
+  
+                <button (click)="setId(prodajalec.prodajalecID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProdajalecModal">Delete Asset</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

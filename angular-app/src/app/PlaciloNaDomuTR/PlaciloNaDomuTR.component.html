@@ -1,0 +1,76 @@
+
+
+<div class="container">
+
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+		<strong>Error:</strong> {{errorMessage}}
+	</div>
+
+  <div class="row">
+      <h1>Placilo na domu</h1>
+  </div>
+
+  <div class="row">
+    <br>
+  </div>
+
+  <div class="row RR">
+    <div *ngIf="transactionFrom" class="col-md-offset-3 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"> <strong>Vnesite podrobnosti </strong>
+        </div>
+        <div class="panel-body">
+          <form [formGroup]="myForm">
+
+            <p>Posiljka:
+              <select name="posiljke" formControlName="formPosiljkaID">
+                <option *ngFor="let posiljka of allPosiljke" value="{{posiljka.posiljkaID}}">{{posiljka.posiljkaID}}</option>
+              </select>
+            </p>
+
+            <p>Postar:
+              <select name="postarji" formControlName="formPostarID" >
+                <option *ngFor="let postar of allPostarji" value="{{postar.postarID}}">{{postar.postarID}}</option>
+              </select>
+            </p>
+
+            <p>Namen stranke:
+              <select name="actions" formControlName="action">
+                <option value="PLACILO">PLACILO</option>
+                <option value="NEPLACILO">NEPLACILO</option>
+                <option value="ZAVRNITEV">ZAVRNITEV</option>
+              </select>
+            </p>
+
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!transactionFrom" class="col-md-offset-3 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>Transakcija izvedena</strong></div>
+        <div class="panel-body">
+          <form [formGroup]="myForm">
+            <p>ID transakcije {{transactionID}}</p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div *ngIf="transactionFrom" class="col-md-offset-4 col-md-4">
+    <button (click)="execute(form);" type="button" class="btn btn-success" data-toggle="modal" >Izvedi transakcijo</button>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <br>
+    <br>
+  </div>
+
+
+</div>

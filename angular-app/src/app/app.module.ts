@@ -12,7 +12,14 @@ import { HomeComponent } from './home/home.component';
 import { IzdelekComponent } from './Izdelek/Izdelek.component';
 import { NarociloComponent } from './Narocilo/Narocilo.component';
 import { KupecComponent } from './Kupec/Kupec.component';
+import { ProdajalecComponent } from './Prodajalec/Prodajalec.component';
+import { PostnaEnotaComponent } from './PostnaEnota/PostnaEnota.component';
 import { PosiljkaComponent } from './Posiljka/Posiljka.component';
+import { BankaComponent } from './Banka/Banka.component';
+import { PostarComponent } from './Postar/Postar.component';
+import { VseTransakcijeComponent } from './VseTransakcije/VseTransakcije.component';
+import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR/OddajaNarocilaTR.component';
+import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.component';
 
 
 
@@ -24,8 +31,15 @@ import { PosiljkaComponent } from './Posiljka/Posiljka.component';
     IzdelekComponent,
     NarociloComponent,
     KupecComponent,
-    PosiljkaComponent
-    
+    ProdajalecComponent,
+    PostnaEnotaComponent,
+    PosiljkaComponent,
+    BankaComponent,
+    PostarComponent,
+    VseTransakcijeComponent,
+    OddajaNarocilaTRComponent,
+    PlaciloNaDomuTRComponent
+
   ],
   imports: [
     BrowserModule,

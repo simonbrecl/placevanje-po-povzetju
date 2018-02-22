@@ -1,47 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { KupecService } from './Kupec.service';
+import { PostarService } from './Postar.service';
 import 'rxjs/add/operator/toPromise';
 @Component({
-	selector: 'app-Kupec',
-	templateUrl: './Kupec.component.html',
-	styleUrls: ['./Kupec.component.css'],
-    providers: [KupecService]
+	selector: 'app-Postar',
+	templateUrl: './Postar.component.html',
+	styleUrls: ['./Postar.component.css'],
+    providers: [PostarService]
 })
-export class KupecComponent implements OnInit {
+export class PostarComponent implements OnInit {
 
     myForm: FormGroup;
 
-    private allKupec;
-    private kupec;
+    private allPostar;
+    private postar;
     private currentId;
     private errorMessage;
 
-    kupecID = new FormControl("", Validators.required);
-    ime = new FormControl("", Validators.required);
-    priimek = new FormControl("", Validators.required);
-    email = new FormControl("", Validators.required);
-    kraj = new FormControl("", Validators.required);
-    postnaSt = new FormControl("", Validators.required);
-    ulica = new FormControl("", Validators.required);
-    hisnaSt = new FormControl("", Validators.required);
-    stanje = new FormControl("", Validators.required);
-    banka = new FormControl("", Validators.required);
+        postarID = new FormControl("", Validators.required);
+        ime = new FormControl("", Validators.required);
+        priimek = new FormControl("", Validators.required);
 
 
-    constructor(private serviceKupec:KupecService, fb: FormBuilder) {
+    constructor(private servicePostar:PostarService, fb: FormBuilder) {
         this.myForm = fb.group({
         
-          kupecID:this.kupecID,
-          ime:this.ime,
-          priimek:this.priimek,
-          email:this.email,
-          kraj:this.kraj,
-          postnaSt:this.postnaSt,
-          ulica:this.ulica,
-          hisnaSt:this.hisnaSt,
-          stanje:this.stanje,
-          banka:this.banka
+        postarID:this.postarID,
+        ime:this.ime,
+        priimek:this.priimek
 
         });
     };
@@ -50,16 +36,16 @@ export class KupecComponent implements OnInit {
         this.loadAll();
     }
 
-    loadAll_Kupec(): Promise<any> {
+    loadAll_Postar(): Promise<any> {
         let tempList = [];
-        return this.serviceKupec.getAllKupec()
+        return this.servicePostar.getAllPostar()
         .toPromise()
         .then((result) => {
             this.errorMessage = null;
-            result.forEach(kupec => {
-                tempList.push(kupec);
+            result.forEach(postar => {
+                tempList.push(postar);
           });
-          this.allKupec = tempList;
+          this.allPostar = tempList;
         })
         .catch((error) => {
             if(error == 'Server error'){
@@ -76,14 +62,14 @@ export class KupecComponent implements OnInit {
 
     loadAll(): Promise<any> {
         let tempList = [];
-        return this.serviceKupec.getAllKupec()
+        return this.servicePostar.getAllPostar()
         .toPromise()
         .then((result) => {
             this.errorMessage = null;
-            result.forEach(kupec => {
-                tempList.push(kupec);
+            result.forEach(postar => {
+                tempList.push(postar);
         });
-        this.allKupec = tempList;
+        this.allPostar = tempList;
         })
         .catch((error) => {
             if(error == 'Server error'){
@@ -100,7 +86,7 @@ export class KupecComponent implements OnInit {
 
     
 
-    addKupec(form: any): Promise<any> {
+    addPostar(form: any): Promise<any> {
 
         function makeid() {
             var text = "";
@@ -112,53 +98,33 @@ export class KupecComponent implements OnInit {
             return text;
           }
 
-        this.kupec = {
-          $class: "org.feri.model.Kupec",
+        this.postar = {
+          $class: "org.feri.model.Postar",
           
-            "kupecID":"KUPEC_" + makeid(),
+            "postarID":"POSTAR_" + makeid(),
             "ime":this.ime.value,
-            "priimek":this.priimek.value,
-            "email":this.email.value,
-            "kraj":this.kraj.value,
-            "postnaSt":this.postnaSt.value,
-            "ulica":this.ulica.value,
-            "hisnaSt":this.hisnaSt.value,
-            "stanje":this.stanje.value,
-            "banka":this.banka.value
+            "priimek":this.priimek.value
 
         };
     
         this.myForm.setValue({
           
-          "kupecID":null,
-					"ime":null,
-					"priimek":null,
-					"email":null,
-					"kraj":null,
-					"postnaSt":null,
-					"ulica":null,
-					"hisnaSt":null,
-					"stanje":null,
-					"banka":null
+            "postarID":null,
+            "ime":null,
+            "priimek":null
  
         });
     
-        return this.serviceKupec.addKupec(this.kupec)
+        return this.servicePostar.addPostar(this.postar)
         .toPromise()
         .then(() => {
                 this.errorMessage = null;
           this.myForm.setValue({
           
-            "kupecID":null,
+            "postarID":null,
             "ime":null,
-            "priimek":null,
-            "email":null,
-            "kraj":null,
-            "postnaSt":null,
-            "ulica":null,
-            "hisnaSt":null,
-            "stanje":null,
-            "banka":null
+            "priimek":null
+       
             
           });
         })
@@ -173,23 +139,16 @@ export class KupecComponent implements OnInit {
       }
 
 
-    updateKupec(form: any): Promise<any> {
-        this.kupec = {
-        $class: "org.feri.model.Kupec",
+    updatePostar(form: any): Promise<any> {
+        this.postar = {
+        $class: "org.feri.model.Postar",
             
-        "ime":this.ime.value,
-        "priimek":this.priimek.value,
-        "email":this.email.value,
-        "kraj":this.kraj.value,
-        "postnaSt":this.postnaSt.value,
-        "ulica":this.ulica.value,
-        "hisnaSt":this.hisnaSt.value,
-        "stanje":this.stanje.value,
-        "banka":this.banka.value
+            "ime":this.ime.value,
+            "priimek":this.priimek.value
             
         };
 
-        return this.serviceKupec.updateKupec(form.get("kupecID").value,this.kupec)
+        return this.servicePostar.updatePostar(form.get("postarID").value,this.postar)
             .toPromise()
             .then(() => {
                 this.errorMessage = null;
@@ -208,9 +167,9 @@ export class KupecComponent implements OnInit {
     }
 
 
-    deleteKupec(): Promise<any> {
+    deletePostar(): Promise<any> {
 
-        return this.serviceKupec.deleteKupec(this.currentId)
+        return this.servicePostar.deletePostar(this.currentId)
             .toPromise()
             .then(() => {
                 this.errorMessage = null;
@@ -234,29 +193,23 @@ export class KupecComponent implements OnInit {
 
     getForm(id: any): Promise<any>{
 
-        return this.serviceKupec.getKupec(id)
+        return this.servicePostar.getPostar(id)
         .toPromise()
         .then((result) => {
             this.errorMessage = null;
             let formObject = {
 
-              "kupecID":null,
-              "ime":null,
-              "priimek":null,
-              "email":null,
-              "kraj":null,
-              "postnaSt":null,
-              "ulica":null,
-              "hisnaSt":null,
-              "stanje":null,
-              "banka":null      
+                "postarID":null,
+                "ime":null,
+                "priimek":null
+         
             
         };
 
-        if(result.kupecID){
-            formObject.kupecID = result.kupecID;
+        if(result.postarID){
+            formObject.postarID = result.postarID;
         }else{
-            formObject.kupecID = null;
+            formObject.postarID = null;
         }
 
         if(result.ime){
@@ -269,48 +222,6 @@ export class KupecComponent implements OnInit {
             formObject.priimek = result.priimek;
         }else{
             formObject.priimek = null;
-        }
-
-        if(result.email){
-            formObject.email = result.email;
-        }else{
-            formObject.email = null;
-        }
-
-        if(result.kraj){
-            formObject.kraj = result.kraj;
-        }else{
-            formObject.kraj = null;
-        }
-
-        if(result.postnaSt){
-          formObject.postnaSt = result.postnaSt;
-      }else{
-          formObject.postnaSt = null;
-      }
-
-      if(result.ulica){
-          formObject.ulica = result.ulica;
-      }else{
-          formObject.ulica = null;
-      }
-
-        if(result.hisnaSt){
-            formObject.hisnaSt = result.hisnaSt;
-        }else{
-            formObject.hisnaSt = null;
-        }
-
-        if(result.stanje){
-            formObject.stanje = result.stanje;
-        }else{
-            formObject.stanje = null;
-        }
-    
-        if(result.banka){
-            formObject.banka = result.banka;
-        }else{
-            formObject.banka = null;
         }
         
         this.myForm.setValue(formObject);
@@ -333,16 +244,9 @@ export class KupecComponent implements OnInit {
     resetForm(): void{
         this.myForm.setValue({
             
-          "kupecID":null,
-          "ime":null,
-          "priimek":null,
-          "email":null,
-          "kraj":null,
-          "postnaSt":null,
-          "ulica":null,
-          "hisnaSt":null,
-          "stanje":null,
-          "banka":null         
+            "postarID":null,
+            "ime":null,
+            "priimek":null,          
         
         });
     }

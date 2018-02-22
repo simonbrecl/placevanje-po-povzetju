@@ -53,6 +53,15 @@ export class DataService<Type> {
           .catch(this.handleError);
     }
 
+    public transactions(): Observable<Type[]> {
+        console.log('Get transactions ');
+
+        //return this.http.get(this.actionUrl + 'system/transactions')
+        return this.http.get(this.actionUrl + 'system/historian')
+        .map(this.extractData)
+        .catch(this.handleError);
+    }
+
     public delete(ns: string, id: string): Observable<Type> {
         console.log('Delete ' + ns);
 
