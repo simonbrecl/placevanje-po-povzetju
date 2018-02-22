@@ -31,7 +31,6 @@ export class NarociloComponent implements OnInit {
         
   
       
-          celotenZnesek = new FormControl("", Validators.required);
         
   
       
@@ -64,7 +63,6 @@ export class NarociloComponent implements OnInit {
         
     
         
-          celotenZnesek:this.celotenZnesek,
         
     
         
@@ -152,7 +150,6 @@ export class NarociloComponent implements OnInit {
         
       
         
-          "celotenZnesek":this.celotenZnesek.value,
         
       
         
@@ -184,7 +181,6 @@ export class NarociloComponent implements OnInit {
         
       
         
-          "celotenZnesek":null,
         
       
         
@@ -220,7 +216,6 @@ export class NarociloComponent implements OnInit {
         
       
         
-          "celotenZnesek":null,
         
       
         
@@ -270,7 +265,6 @@ export class NarociloComponent implements OnInit {
     
         
           
-            "celotenZnesek":this.celotenZnesek.value,
           
         
     
@@ -358,7 +352,6 @@ export class NarociloComponent implements OnInit {
           
         
           
-            "celotenZnesek":null,
           
         
           
@@ -402,13 +395,7 @@ export class NarociloComponent implements OnInit {
           formObject.kupec = null;
         }
       
-        if(result.celotenZnesek){
-          
-            formObject.celotenZnesek = result.celotenZnesek;
-          
-        }else{
-          formObject.celotenZnesek = null;
-        }
+      
       
         if(result.stanjeNarocila){
           
@@ -468,7 +455,6 @@ export class NarociloComponent implements OnInit {
         
       
         
-          "celotenZnesek":null,
         
       
         
