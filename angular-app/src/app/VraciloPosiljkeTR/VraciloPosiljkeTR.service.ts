@@ -12,7 +12,7 @@ export class VraciloPosiljkeTRService {
     private POSILJKA: string = 'Posiljka';
     private VRACILO_POSILJKE: string = 'VraciloPosiljke';
 
-    constructor(private PosiljkaService: DataService<VraciloPosiljke>, private VraciloPosiljkeService: DataService<VraciloPosiljke>) {
+    constructor(private PosiljkaService: DataService<Posiljka>, private VraciloPosiljkeService: DataService<VraciloPosiljke>) {
     };
 
     public getAllPosiljke(): Observable<Posiljka[]> {
