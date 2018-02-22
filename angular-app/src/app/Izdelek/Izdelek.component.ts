@@ -115,11 +115,23 @@ export class IzdelekComponent implements OnInit {
   }
 
   addAsset(form: any): Promise<any> {
+
+    function makeid() {
+      var text = "";
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    
+      for (var i = 0; i < 8; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    
+      return text;
+    }
+
     this.asset = {
       $class: "org.feri.model.Izdelek",
       
         
-          "izdelekID":this.izdelekID.value,
+         "izdelekID":"IZDELEK_" + makeid(),
+
         
       
         
