@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // import { TransactionComponent } from './Transaction/Transaction.component'
 import { HomeComponent } from './home/home.component';
-/*
+
 import { IzdelekComponent } from './Izdelek/Izdelek.component';
 import { NarociloComponent } from './Narocilo/Narocilo.component';
 import { KupecComponent } from './Kupec/Kupec.component';
@@ -14,13 +14,13 @@ import { PosiljkaComponent } from './Posiljka/Posiljka.component';
 import { VseTransakcijeComponent } from './VseTransakcije/VseTransakcije.component';
 import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR/OddajaNarocilaTR.component';
 import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.component';
-*/
+
 
 
 const routes: Routes = [
     // { path: 'transaction', component: TransactionComponent },
     {path: '', component: HomeComponent},
-		/*
+		
 		{ path: 'Izdelek', component: IzdelekComponent},
 		
     { path: 'Narocilo', component: NarociloComponent},
@@ -33,7 +33,7 @@ const routes: Routes = [
     { path: 'Posiljka', component: PosiljkaComponent},
     { path: 'VseTransakcije', component: VseTransakcijeComponent},
     { path: 'OddajaNarocilaTR', component: OddajaNarocilaTRComponent},
-    { path: 'PlaciloNaDomuTR', component: PlaciloNaDomuTRComponent},*/
+    { path: 'PlaciloNaDomuTR', component: PlaciloNaDomuTRComponent},
 
 		
 		{path: '**', redirectTo:''}
