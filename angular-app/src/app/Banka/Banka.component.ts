@@ -17,7 +17,6 @@ export class BankaComponent implements OnInit {
     private currentId;
     private errorMessage;
 
-        bankaID = new FormControl("", Validators.required);
         naziv = new FormControl("", Validators.required);
         kraj = new FormControl("", Validators.required);
         postnaSt = new FormControl("", Validators.required);
@@ -31,7 +30,6 @@ export class BankaComponent implements OnInit {
     constructor(private serviceBanka:BankaService, fb: FormBuilder) {
         this.myForm = fb.group({
         
-        bankaID:this.bankaID,
         naziv:this.naziv,
         kraj:this.kraj,
         postnaSt:this.postnaSt,
@@ -99,20 +97,9 @@ export class BankaComponent implements OnInit {
 
     addBanka(form: any): Promise<any> {
 
-        function makeid() {
-            var text = "";
-            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-          
-            for (var i = 0; i < 8; i++)
-              text += possible.charAt(Math.floor(Math.random() * possible.length));
-          
-            return text;
-          }
-
         this.banka = {
           $class: "org.feri.model.Banka",
           
-            "bankaID":"BANKA_" + makeid(),
             "naziv":this.naziv.value,
             "kraj":this.kraj.value,
             "postnaSt":this.postnaSt.value,
@@ -126,7 +113,6 @@ export class BankaComponent implements OnInit {
     
         this.myForm.setValue({
           
-            "bankaID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,
@@ -143,7 +129,6 @@ export class BankaComponent implements OnInit {
                 this.errorMessage = null;
           this.myForm.setValue({
           
-            "bankaID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,
@@ -169,7 +154,6 @@ export class BankaComponent implements OnInit {
         this.banka = {
         $class: "org.feri.model.Banka",
             
-            "naziv":this.naziv.value,
             "kraj":this.kraj.value,
             "postnaSt":this.postnaSt.value,
             "ulica":this.ulica.value,
@@ -229,7 +213,6 @@ export class BankaComponent implements OnInit {
             this.errorMessage = null;
             let formObject = {
 
-                "bankaID":null,
                 "naziv":null,
                 "kraj":null,
                 "postnaSt":null,
@@ -240,12 +223,6 @@ export class BankaComponent implements OnInit {
          
             
         };
-
-        if(result.bankaID){
-            formObject.bankaID = result.bankaID;
-        }else{
-            formObject.bankaID = null;
-        }
 
         if(result.naziv){
             formObject.naziv = result.naziv;
@@ -310,7 +287,6 @@ export class BankaComponent implements OnInit {
     resetForm(): void{
         this.myForm.setValue({
             
-            "bankaID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,

@@ -17,7 +17,6 @@ export class ProdajalecComponent implements OnInit {
     private currentId;
     private errorMessage;
 
-        prodajalecID = new FormControl("", Validators.required);
         naziv = new FormControl("", Validators.required);
         kraj = new FormControl("", Validators.required);
         postnaSt = new FormControl("", Validators.required);
@@ -30,7 +29,6 @@ export class ProdajalecComponent implements OnInit {
     constructor(private serviceProdajalec:ProdajalecService, fb: FormBuilder) {
         this.myForm = fb.group({
         
-        prodajalecID:this.prodajalecID,
         naziv:this.naziv,
         kraj:this.kraj,
         postnaSt:this.postnaSt,
@@ -98,20 +96,9 @@ export class ProdajalecComponent implements OnInit {
 
     addProdajalec(form: any): Promise<any> {
 
-        function makeid() {
-            var text = "";
-            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-          
-            for (var i = 0; i < 8; i++)
-              text += possible.charAt(Math.floor(Math.random() * possible.length));
-          
-            return text;
-          }
-
         this.prodajalec = {
           $class: "org.feri.model.Prodajalec",
           
-            "prodajalecID":"PRODAJALEC_" + makeid(),
             "naziv":this.naziv.value,
             "kraj":this.kraj.value,
             "postnaSt":this.postnaSt.value,
@@ -124,7 +111,6 @@ export class ProdajalecComponent implements OnInit {
     
         this.myForm.setValue({
           
-            "prodajalecID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,
@@ -141,7 +127,6 @@ export class ProdajalecComponent implements OnInit {
                 this.errorMessage = null;
           this.myForm.setValue({
           
-            "prodajalecID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,
@@ -167,7 +152,6 @@ export class ProdajalecComponent implements OnInit {
         this.prodajalec = {
         $class: "org.feri.model.Prodajalec",
             
-            "naziv":this.naziv.value,
             "kraj":this.kraj.value,
             "postnaSt":this.postnaSt.value,
             "ulica":this.ulica.value,
@@ -177,7 +161,7 @@ export class ProdajalecComponent implements OnInit {
             
         };
 
-        return this.serviceProdajalec.updateProdajalec(form.get("prodajalecID").value,this.prodajalec)
+        return this.serviceProdajalec.updateProdajalec(form.get("naziv").value,this.prodajalec)
             .toPromise()
             .then(() => {
                 this.errorMessage = null;
@@ -228,7 +212,6 @@ export class ProdajalecComponent implements OnInit {
             this.errorMessage = null;
             let formObject = {
 
-                "prodajalecID":null,
                 "naziv":null,
                 "kraj":null,
                 "postnaSt":null,
@@ -238,12 +221,6 @@ export class ProdajalecComponent implements OnInit {
                 "vraciloDnevi":null           
             
         };
-
-        if(result.prodajalecID){
-            formObject.prodajalecID = result.prodajalecID;
-        }else{
-            formObject.prodajalecID = null;
-        }
 
         if(result.naziv){
             formObject.naziv = result.naziv;
@@ -307,7 +284,6 @@ export class ProdajalecComponent implements OnInit {
     resetForm(): void{
         this.myForm.setValue({
             
-            "prodajalecID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,

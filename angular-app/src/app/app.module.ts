@@ -20,7 +20,8 @@ import { PostarComponent } from './Postar/Postar.component';
 import { VseTransakcijeComponent } from './VseTransakcije/VseTransakcije.component';
 import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR/OddajaNarocilaTR.component';
 import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.component';
-
+import { PrihodNaPostnoEnotoTRComponent } from './PrihodNaPostnoEnotoTR/PrihodNaPostnoEnotoTR.component';
+import { PrevzemNaPostniEnotiTRComponent } from './PrevzemNaPostniEnotiTR/PrevzemNaPostniEnotiTR.component';
 
 
 @NgModule({
@@ -38,7 +39,9 @@ import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.comp
     PostarComponent,
     VseTransakcijeComponent,
     OddajaNarocilaTRComponent,
-    PlaciloNaDomuTRComponent
+    PlaciloNaDomuTRComponent,
+    PrihodNaPostnoEnotoTRComponent,
+    PrevzemNaPostniEnotiTRComponent
 
   ],
   imports: [

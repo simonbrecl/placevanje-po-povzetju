@@ -4,10 +4,9 @@ import {Transaction} from './org.hyperledger.composer.system';
 import {Event} from './org.hyperledger.composer.system';
 // export namespace org.feri.model{
    export class Kupec extends Participant {
-      kupecID: string;
+    email: string;
       ime: string;
       priimek: string;
-      email: string;
       kraj: string;
       postnaSt: number;
       ulica: string;
@@ -17,7 +16,6 @@ import {Event} from './org.hyperledger.composer.system';
       zgodovinaPlacil: Posiljka[];
    }
    export class Prodajalec extends Participant {
-      prodajalecID: string;
       naziv: string;
       kraj: string;
       postnaSt: number;
@@ -27,7 +25,6 @@ import {Event} from './org.hyperledger.composer.system';
       vraciloDnevi: number;
    }
    export class Banka extends Participant {
-      bankaID: string;
       naziv: string;
       kraj: string;
       postnaSt: number;
@@ -38,7 +35,6 @@ import {Event} from './org.hyperledger.composer.system';
       odobrenZnesekDo: number;
    }
    export class PostnaEnota extends Participant {
-      postnaEnotaID: string;
       naziv: string;
       kraj: string;
       postnaSt: number;
@@ -55,7 +51,6 @@ import {Event} from './org.hyperledger.composer.system';
    export class Izdelek extends Asset {
       izdelekID: string;
       naziv: string;
-      kolicina: number;
       cena: number;
       prodajalec: Prodajalec;
    }

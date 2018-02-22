@@ -17,7 +17,6 @@ export class KupecComponent implements OnInit {
     private currentId;
     private errorMessage;
 
-    kupecID = new FormControl("", Validators.required);
     ime = new FormControl("", Validators.required);
     priimek = new FormControl("", Validators.required);
     email = new FormControl("", Validators.required);
@@ -32,7 +31,6 @@ export class KupecComponent implements OnInit {
     constructor(private serviceKupec:KupecService, fb: FormBuilder) {
         this.myForm = fb.group({
         
-          kupecID:this.kupecID,
           ime:this.ime,
           priimek:this.priimek,
           email:this.email,
@@ -102,20 +100,9 @@ export class KupecComponent implements OnInit {
 
     addKupec(form: any): Promise<any> {
 
-        function makeid() {
-            var text = "";
-            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-          
-            for (var i = 0; i < 8; i++)
-              text += possible.charAt(Math.floor(Math.random() * possible.length));
-          
-            return text;
-          }
-
         this.kupec = {
           $class: "org.feri.model.Kupec",
           
-            "kupecID":"KUPEC_" + makeid(),
             "ime":this.ime.value,
             "priimek":this.priimek.value,
             "email":this.email.value,
@@ -130,16 +117,15 @@ export class KupecComponent implements OnInit {
     
         this.myForm.setValue({
           
-          "kupecID":null,
-					"ime":null,
-					"priimek":null,
-					"email":null,
-					"kraj":null,
-					"postnaSt":null,
-					"ulica":null,
-					"hisnaSt":null,
-					"stanje":null,
-					"banka":null
+                "ime":null,
+                "priimek":null,
+                "email":null,
+                "kraj":null,
+                "postnaSt":null,
+                "ulica":null,
+                "hisnaSt":null,
+                "stanje":null,
+                "banka":null
  
         });
     
@@ -149,7 +135,6 @@ export class KupecComponent implements OnInit {
                 this.errorMessage = null;
           this.myForm.setValue({
           
-            "kupecID":null,
             "ime":null,
             "priimek":null,
             "email":null,
@@ -179,7 +164,6 @@ export class KupecComponent implements OnInit {
             
         "ime":this.ime.value,
         "priimek":this.priimek.value,
-        "email":this.email.value,
         "kraj":this.kraj.value,
         "postnaSt":this.postnaSt.value,
         "ulica":this.ulica.value,
@@ -189,7 +173,7 @@ export class KupecComponent implements OnInit {
             
         };
 
-        return this.serviceKupec.updateKupec(form.get("kupecID").value,this.kupec)
+        return this.serviceKupec.updateKupec(form.get("email").value,this.kupec)
             .toPromise()
             .then(() => {
                 this.errorMessage = null;
@@ -240,7 +224,6 @@ export class KupecComponent implements OnInit {
             this.errorMessage = null;
             let formObject = {
 
-              "kupecID":null,
               "ime":null,
               "priimek":null,
               "email":null,
@@ -252,12 +235,6 @@ export class KupecComponent implements OnInit {
               "banka":null      
             
         };
-
-        if(result.kupecID){
-            formObject.kupecID = result.kupecID;
-        }else{
-            formObject.kupecID = null;
-        }
 
         if(result.ime){
             formObject.ime = result.ime;
@@ -333,7 +310,6 @@ export class KupecComponent implements OnInit {
     resetForm(): void{
         this.myForm.setValue({
             
-          "kupecID":null,
           "ime":null,
           "priimek":null,
           "email":null,

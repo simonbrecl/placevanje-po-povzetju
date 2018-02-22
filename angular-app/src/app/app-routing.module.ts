@@ -14,7 +14,8 @@ import { PosiljkaComponent } from './Posiljka/Posiljka.component';
 import { VseTransakcijeComponent } from './VseTransakcije/VseTransakcije.component';
 import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR/OddajaNarocilaTR.component';
 import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.component';
-
+import { PrihodNaPostnoEnotoTRComponent } from './PrihodNaPostnoEnotoTR/PrihodNaPostnoEnotoTR.component';
+import { PrevzemNaPostniEnotiTRComponent } from './PrevzemNaPostniEnotiTR/PrevzemNaPostniEnotiTR.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,8 @@ const routes: Routes = [
     { path: 'VseTransakcije', component: VseTransakcijeComponent},
     { path: 'OddajaNarocilaTR', component: OddajaNarocilaTRComponent},
     { path: 'PlaciloNaDomuTR', component: PlaciloNaDomuTRComponent},
+    { path: 'PrihodNaPostnoEnotoTR', component: PrihodNaPostnoEnotoTRComponent},
+    { path: 'PrevzemNaPostniEnotiTR', component: PrevzemNaPostniEnotiTRComponent},
 
 		
 		{path: '**', redirectTo:''}

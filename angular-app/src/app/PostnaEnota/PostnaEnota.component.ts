@@ -17,7 +17,6 @@ export class PostnaEnotaComponent implements OnInit {
     private currentId;
     private errorMessage;
 
-        postnaEnotaID = new FormControl("", Validators.required);
         naziv = new FormControl("", Validators.required);
         kraj = new FormControl("", Validators.required);
         postnaSt = new FormControl("", Validators.required);
@@ -30,7 +29,6 @@ export class PostnaEnotaComponent implements OnInit {
     constructor(private servicePostnaEnota:PostnaEnotaService, fb: FormBuilder) {
         this.myForm = fb.group({
         
-        postnaEnotaID:this.postnaEnotaID,
         naziv:this.naziv,
         kraj:this.kraj,
         postnaSt:this.postnaSt,
@@ -98,20 +96,9 @@ export class PostnaEnotaComponent implements OnInit {
 
     addPostnaEnota(form: any): Promise<any> {
 
-        function makeid() {
-            var text = "";
-            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-          
-            for (var i = 0; i < 8; i++)
-              text += possible.charAt(Math.floor(Math.random() * possible.length));
-          
-            return text;
-          }
-
         this.postnaenota = {
           $class: "org.feri.model.PostnaEnota",
           
-            "postnaEnotaID":"ENOTA_" + makeid(),
             "naziv":this.naziv.value,
             "kraj":this.kraj.value,
             "postnaSt":this.postnaSt.value,
@@ -124,7 +111,6 @@ export class PostnaEnotaComponent implements OnInit {
     
         this.myForm.setValue({
           
-            "postnaEnotaID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,
@@ -141,7 +127,6 @@ export class PostnaEnotaComponent implements OnInit {
                 this.errorMessage = null;
           this.myForm.setValue({
           
-            "postnaEnotaID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,
@@ -168,7 +153,6 @@ export class PostnaEnotaComponent implements OnInit {
         this.postnaenota = {
         $class: "org.feri.model.PostnaEnota",
             
-            "naziv":this.naziv.value,
             "kraj":this.kraj.value,
             "postnaSt":this.postnaSt.value,
             "ulica":this.ulica.value,
@@ -230,7 +214,6 @@ export class PostnaEnotaComponent implements OnInit {
             this.errorMessage = null;
             let formObject = {
 
-                "postnaEnotaID":null,
                 "naziv":null,
                 "kraj":null,
                 "postnaSt":null,
@@ -239,12 +222,6 @@ export class PostnaEnotaComponent implements OnInit {
                 "hranjenjePosiljke":null,
                 "postarji":null
         };
-
-        if(result.postnaEnotaID){
-            formObject.postnaEnotaID = result.postnaEnotaID;
-        }else{
-            formObject.postnaEnotaID = null;
-        }
 
         if(result.naziv){
             formObject.naziv = result.naziv;
@@ -309,7 +286,6 @@ export class PostnaEnotaComponent implements OnInit {
     resetForm(): void{
         this.myForm.setValue({
             
-            "postnaEnotaID":null,
             "naziv":null,
             "kraj":null,
             "postnaSt":null,
