@@ -41,7 +41,7 @@ import { PrevzemNaPostniEnotiTRComponent } from './PrevzemNaPostniEnotiTR/Prevze
     VseTransakcijeComponent,
     OddajaNarocilaTRComponent,
     PlaciloNaDomuTRComponent,
-    VraciloPosiljkeTRComponent
+    VraciloPosiljkeTRComponent,
     PrihodNaPostnoEnotoTRComponent,
     PrevzemNaPostniEnotiTRComponent
 

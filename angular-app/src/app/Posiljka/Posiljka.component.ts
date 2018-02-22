@@ -27,7 +27,6 @@ export class PosiljkaComponent implements OnInit {
         
   
       
-          postar = new FormControl("", Validators.required);
         
   
       
@@ -56,7 +55,6 @@ export class PosiljkaComponent implements OnInit {
         
     
         
-          postar:this.postar,
         
     
         
@@ -140,7 +138,6 @@ export class PosiljkaComponent implements OnInit {
         
       
         
-          "postar":this.postar.value,
         
       
         
@@ -168,7 +165,6 @@ export class PosiljkaComponent implements OnInit {
         
       
         
-          "postar":null,
         
       
         
@@ -200,7 +196,6 @@ export class PosiljkaComponent implements OnInit {
         
       
         
-          "postar":null,
         
       
         
@@ -244,7 +239,6 @@ export class PosiljkaComponent implements OnInit {
     
         
           
-            "postar":this.postar.value,
           
         
     
@@ -328,7 +322,6 @@ export class PosiljkaComponent implements OnInit {
           
         
           
-            "postar":null,
           
         
           
@@ -364,13 +357,7 @@ export class PosiljkaComponent implements OnInit {
           formObject.narocilo = null;
         }
       
-        if(result.postar){
-          
-            formObject.postar = result.postar;
-          
-        }else{
-          formObject.postar = null;
-        }
+       
       
         if(result.stanjePosiljke){
           
@@ -426,7 +413,6 @@ export class PosiljkaComponent implements OnInit {
         
       
         
-          "postar":null,
         
       
         

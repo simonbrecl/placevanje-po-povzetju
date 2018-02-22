@@ -24,13 +24,9 @@ export class IzdelekComponent implements OnInit {
   
       
           naziv = new FormControl("", Validators.required);
-        
+                
   
-      
-          kolicina = new FormControl("", Validators.required);
-        
-  
-      
+    
           cena = new FormControl("", Validators.required);
         
   
@@ -52,7 +48,6 @@ export class IzdelekComponent implements OnInit {
         
     
         
-          kolicina:this.kolicina,
         
     
         
@@ -132,7 +127,6 @@ export class IzdelekComponent implements OnInit {
         
       
         
-          "kolicina":this.kolicina.value,
         
       
         
@@ -156,7 +150,6 @@ export class IzdelekComponent implements OnInit {
         
       
         
-          "kolicina":null,
         
       
         
@@ -184,7 +177,6 @@ export class IzdelekComponent implements OnInit {
         
       
         
-          "kolicina":null,
         
       
         
@@ -224,7 +216,6 @@ export class IzdelekComponent implements OnInit {
     
         
           
-            "kolicina":this.kolicina.value,
           
         
     
@@ -302,7 +293,6 @@ export class IzdelekComponent implements OnInit {
           
         
           
-            "kolicina":null,
           
         
           
@@ -334,14 +324,7 @@ export class IzdelekComponent implements OnInit {
           formObject.naziv = null;
         }
       
-        if(result.kolicina){
-          
-            formObject.kolicina = result.kolicina;
-          
-        }else{
-          formObject.kolicina = null;
-        }
-      
+        
         if(result.cena){
           
             formObject.cena = result.cena;
@@ -388,7 +371,6 @@ export class IzdelekComponent implements OnInit {
         
       
         
-          "kolicina":null,
         
       
         

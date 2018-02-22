@@ -12,9 +12,11 @@ import { PostarComponent } from './Postar/Postar.component';
 import { BankaComponent } from './Banka/Banka.component';
 import { PosiljkaComponent } from './Posiljka/Posiljka.component';
 import { VseTransakcijeComponent } from './VseTransakcije/VseTransakcije.component';
-import { VraciloPosiljkeComponent } from './VraciloPosiljke/VraciloPosiljke.component';
+import { VraciloPosiljkeTRComponent } from './VraciloPosiljkeTR/VraciloPosiljkeTR.component';
 import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR/OddajaNarocilaTR.component';
 import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.component';
+import { PrihodNaPostnoEnotoTRComponent } from './PrihodNaPostnoEnotoTR/PrihodNaPostnoEnotoTR.component';
+import { PrevzemNaPostniEnotiTRComponent } from './PrevzemNaPostniEnotiTR/PrevzemNaPostniEnotiTR.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
