@@ -21,8 +21,8 @@ import { VseTransakcijeComponent } from './VseTransakcije/VseTransakcije.compone
 import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR/OddajaNarocilaTR.component';
 import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.component';
 import { VraciloPosiljkeTRComponent } from './VraciloPosiljkeTR/VraciloPosiljkeTR.component';
-
-
+import { PrihodNaPostnoEnotoTRComponent } from './PrihodNaPostnoEnotoTR/PrihodNaPostnoEnotoTR.component';
+import { PrevzemNaPostniEnotiTRComponent } from './PrevzemNaPostniEnotiTR/PrevzemNaPostniEnotiTR.component';
 
 
 @NgModule({
@@ -42,6 +42,8 @@ import { VraciloPosiljkeTRComponent } from './VraciloPosiljkeTR/VraciloPosiljkeT
     OddajaNarocilaTRComponent,
     PlaciloNaDomuTRComponent,
     VraciloPosiljkeTRComponent
+    PrihodNaPostnoEnotoTRComponent,
+    PrevzemNaPostniEnotiTRComponent
 
   ],
   imports: [

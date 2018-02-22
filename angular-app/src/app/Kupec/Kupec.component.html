@@ -85,11 +85,6 @@
             </div>
 
             <div class="form-group text-left">
-              <label for="email">email</label>
-                <input [ngModel]="email"formControlName="email" type="text" class="form-control">
-            </div>
-
-            <div class="form-group text-left">
               <label for="kraj">kraj</label>
                 <input [ngModel]="kraj"formControlName="kraj" type="text" class="form-control">
             </div>
@@ -108,11 +103,6 @@
             <div class="form-group text-left">
               <label for="hisnaSt">hisnaSt</label>
                 <input [ngModel]="hisnaSt"formControlName="hisnaSt" type="text" class="form-control">
-            </div>
-                      
-            <div class="form-group text-left">
-              <label for="stanje">stanje</label>
-                <input [ngModel]="stanje"formControlName="stanje" type="number" class="form-control">
             </div>
           
             <div class="form-group text-left">
@@ -167,8 +157,6 @@
         <thead class="thead">
           <tr class="thead-cols">
             
-            <th class="info">kupecID</th>
-
             <th class="info">ime</th>
 
             <th class="info">priimek</th>
@@ -193,9 +181,6 @@
         <tbody>
           <tr *ngFor="let kupec of allKupec">
 
-            
-            <td>{{kupec.kupecID}}</td>
-
             <td>{{kupec.ime}}</td>
 
             <td>{{kupec.priimek}}</td>
@@ -215,9 +200,9 @@
             <td>{{kupec.banka}}</td>
                           
             <td>
-              <button (click)="getForm(prodajalec.kupecID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateKupecModal">Posodobi</button>
+              <button (click)="getForm(kupec.email);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateKupecModal">Update Asset</button>
 
-              <button (click)="setId(prodajalec.kupecID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteKupecModal">Zbrisi</button>
+              <button (click)="setId(kupec.email);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteKupecModal">Delete Asset</button>
             </td>
           </tr>
         </tbody>

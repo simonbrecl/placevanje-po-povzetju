@@ -63,11 +63,6 @@
         </div>
         <form [formGroup]="myForm">
           <div class="modal-body">
-  
-              <div class="form-group text-left">
-                <label for="naziv">naziv</label>
-                  <input [ngModel]="naziv"formControlName="naziv" type="text" class="form-control">
-              </div>
             
               <div class="form-group text-left">
                 <label for="kraj">kraj</label>
@@ -145,9 +140,7 @@
         <table class="table table-bordered table-responsive table-striped">
           <thead class="thead">
             <tr class="thead-cols">
-              
-                  <th class="info">postnaEnotaID</th>
-    
+                  
                   <th class="info">naziv</th>
               
                   <th class="info">kraj</th>
@@ -166,29 +159,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let postnaenota of allPostnaEnota">
+            <tr *ngFor="let postnaEnota of allPostnaEnota">
   
+                            
+                  <td>{{postnaEnota.naziv}}</td>
               
-                  <td>{{postnaenota.postnaEnotaID}}</td>
+                  <td>{{postnaEnota.kraj}}</td>
+
+                  <td>{{postnaEnota.postnaSt}}</td>
+
+                  <td>{{postnaEnota.ulica}}</td>
+
+                  <td>{{postnaEnota.hisnaSt}}</td>
               
-                  <td>{{postnaenota.naziv}}</td>
-              
-                  <td>{{postnaenota.kraj}}</td>
+                  <td>{{postnaEnota.hranjenjePosiljke}}</td>
 
-                  <td>{{postnaenota.postnaSt}}</td>
-
-                  <td>{{postnaenota.ulica}}</td>
-
-                  <td>{{postnaenota.hisnaSt}}</td>
-              
-                  <td>{{postnaenota.hranjenjePosiljke}}</td>
-
-                  <td>{{postnaenota.postarji}}</td>
+                  <td>{{postnaEnota.postarji}}</td>
                                           
               <td>
-                <button (click)="getForm(PostnaEnota.postnaEnotaID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updatePostnaEnotaModal">Posodobi</button>
+                <button (click)="getForm(postnaEnota.naziv);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updatePostnaEnotaModal">Update Asset</button>
   
-                <button (click)="setId(PostnaEnota.postnaEnotaID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostnaEnotaModal">Zbrisi</button>
+                <button (click)="setId(postnaEnota.naziv);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostnaEnotaModal">Delete Asset</button>
               </td>
             </tr>
           </tbody>

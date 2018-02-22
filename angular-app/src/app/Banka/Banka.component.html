@@ -62,11 +62,6 @@
         </div>
         <form [formGroup]="myForm">
           <div class="modal-body">
-  
-              <div class="form-group text-left">
-                <label for="naziv">naziv</label>
-                  <input [ngModel]="naziv"formControlName="naziv" type="text" class="form-control">
-              </div>
             
               <div class="form-group text-left">
                 <label for="kraj">kraj</label>
@@ -149,9 +144,7 @@
         <table class="table table-bordered table-responsive table-striped">
           <thead class="thead">
             <tr class="thead-cols">
-              
-                  <th class="info">bankaID</th>
-    
+                  
                   <th class="info">naziv</th>
               
                   <th class="info">kraj</th>
@@ -172,9 +165,7 @@
           <tbody>
             <tr *ngFor="let banka of allBanka">
   
-              
-                  <td>{{banka.bankaID}}</td>
-              
+                          
                   <td>{{banka.naziv}}</td>
               
                   <td>{{banka.kraj}}</td>
@@ -190,9 +181,9 @@
                   <td>{{banka.odobrenZnesekDo}}</td>
                             
               <td>
-                <button (click)="getForm(banka.bankaID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateBankaModal">Posodobi banko</button>
+                <button (click)="getForm(banka.naziv);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateBankaModal">Update Asset</button>
   
-                <button (click)="setId(banka.bankaID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteBankaModal">Zbrisi banko</button>
+                <button (click)="setId(banka.naziv);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteBankaModal">Delete Asset</button>
               </td>
             </tr>
           </tbody>

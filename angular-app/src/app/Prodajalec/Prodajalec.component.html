@@ -62,11 +62,6 @@
         </div>
         <form [formGroup]="myForm">
           <div class="modal-body">
-  
-              <div class="form-group text-left">
-                <label for="naziv">naziv</label>
-                  <input [ngModel]="naziv"formControlName="naziv" type="text" class="form-control">
-              </div>
             
               <div class="form-group text-left">
                 <label for="kraj">kraj</label>
@@ -86,11 +81,6 @@
               <div class="form-group text-left">
                 <label for="hisnaSt">hisnaSt</label>
                   <input [ngModel]="hisnaSt"formControlName="hisnaSt" type="text" class="form-control">
-              </div>
-                        
-              <div class="form-group text-left">
-                <label for="stanje">stanje</label>
-                  <input [ngModel]="stanje"formControlName="stanje" type="number" class="form-control">
               </div>
             
               <div class="form-group text-left">
@@ -144,9 +134,7 @@
         <table class="table table-bordered table-responsive table-striped">
           <thead class="thead">
             <tr class="thead-cols">
-              
-                  <th class="info">prodajalecID</th>
-    
+                  
                   <th class="info">naziv</th>
               
                   <th class="info">kraj</th>
@@ -167,9 +155,7 @@
           <tbody>
             <tr *ngFor="let prodajalec of allProdajalec">
   
-              
-                  <td>{{prodajalec.prodajalecID}}</td>
-              
+                            
                   <td>{{prodajalec.naziv}}</td>
               
                   <td>{{prodajalec.kraj}}</td>
@@ -185,9 +171,9 @@
                   <td>{{prodajalec.vraciloDnevi}}</td>
                             
               <td>
-                <button (click)="getForm(prodajalec.prodajalecID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateProdajalecModal">Posodobi</button>
+                <button (click)="getForm(prodajalec.naziv);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateProdajalecModal">Update Asset</button>
   
-                <button (click)="setId(prodajalec.prodajalecID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProdajalecModal">Zbrisi</button>
+                <button (click)="setId(prodajalec.naziv);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProdajalecModal">Delete Asset</button>
               </td>
             </tr>
           </tbody>
