@@ -20,6 +20,8 @@ import { PostarComponent } from './Postar/Postar.component';
 import { VseTransakcijeComponent } from './VseTransakcije/VseTransakcije.component';
 import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR/OddajaNarocilaTR.component';
 import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.component';
+import { VraciloPosiljkeTRComponent } from './VraciloPosiljkeTR/VraciloPosiljkeTR.component';
+
 
 
 
@@ -38,7 +40,8 @@ import { PlaciloNaDomuTRComponent } from './PlaciloNaDomuTR/PlaciloNaDomuTR.comp
     PostarComponent,
     VseTransakcijeComponent,
     OddajaNarocilaTRComponent,
-    PlaciloNaDomuTRComponent
+    PlaciloNaDomuTRComponent,
+    VraciloPosiljkeTRComponent
 
   ],
   imports: [

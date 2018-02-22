@@ -7,28 +7,29 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Configuration } from '../configuration';
 import { DataService } from '../data.service';
-import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR.component';
-import { OddajaNarocilaTRService} from './OddajaNarocilaTR.service';
+import { VraciloPosiljkeTRComponent } from './VraciloPosiljkeTR.component';
+import {VraciloPosiljkeTRService} from './VraciloPosiljkeTR.service';
+
 describe('TransactionComponent', () => {
-  let component: OddajaNarocilaTRComponent;
-  let fixture: ComponentFixture<OddajaNarocilaTRComponent>;
+  let component: VraciloPosiljkeTRComponent;
+  let fixture: ComponentFixture<VraciloPosiljkeTRComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OddajaNarocilaTRComponent ],
+      declarations: [ VraciloPosiljkeTRComponent ],
 imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule
   ],
-providers: [OddajaNarocilaTRService,DataService,Configuration]
+providers: [VraciloPosiljkeTRService,DataService,Configuration]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OddajaNarocilaTRComponent);
+    fixture = TestBed.createComponent(VraciloPosiljkeTRComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

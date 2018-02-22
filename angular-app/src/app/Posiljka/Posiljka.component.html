@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addAssetModalLabel">Add Asset</h4>
+        <h4 class="modal-title" id="addAssetModalLabel">Dodaj posiljko</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
@@ -136,8 +136,8 @@
 
         </div>
         <div class="modal-footer">
-          <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Potrdi</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
         </div>
       </form>
     </div>
@@ -314,15 +314,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="deleteAssetModalLabel">Delete Asset</h4>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Zbrisi</h4>
       </div>
       <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
         <div class="modal-body">
-          Are you sure you want to delete this asset?
+          Res zelite zbrisati?
         </div>
         <div class="modal-footer">
-          <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Da</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
         </div>
       </form>
     </div>
@@ -346,7 +346,7 @@
   <h1 id='assetName'>Posiljka</h1>
   <div class="row">
     <div class="col-md-12 text-right">
-      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Add Asset</button>
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Dodaj</button>
     </div>
   </div>
   <br>
@@ -368,7 +368,7 @@
             
                 <th class="info">postnaEnota</th>
             
-              <th class="info">Actions</th>
+              <th class="info">možnosti</th>
           </tr>
         </thead>
         <tbody>
@@ -388,9 +388,9 @@
                 <td>{{asset.postnaEnota}}</td>
             
             <td>
-              <button (click)="getForm(asset.posiljkaID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Update Asset</button>
+              <button (click)="getForm(asset.posiljkaID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Posodobi</button>
 
-              <button (click)="setId(asset.posiljkaID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Delete Asset</button>
+              <button (click)="setId(asset.posiljkaID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Zbrisi</button>
             </td>
           </tr>
         </tbody>

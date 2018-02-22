@@ -7,7 +7,7 @@
 	</div>
 
   <div class="row">
-      <h1>Oddaja narocila </h1>
+      <h1>Vračilo pošiljke</h1>
   </div>
 
   <div class="row">
@@ -17,22 +17,17 @@
   <div class="row RR">
     <div *ngIf="transactionFrom" class="col-md-offset-3 col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading"> <strong>Vnesite podrobnosti</strong>
+        <div class="panel-heading"> <strong>Vnesite podrobnosti </strong>
         </div>
         <div class="panel-body">
           <form [formGroup]="myForm">
 
-            <p>Narocilo:
-              <select name="narocila" formControlName="formNarociloID">
-                <option *ngFor="let narocilo of allNarocila" value="{{narocilo.narociloID}}">{{narocilo.narociloID}}</option>
+            <p>Posiljka:
+              <select name="posiljke" formControlName="formPosiljkaID">
+                <option *ngFor="let posiljka of allPosiljke" value="{{posiljka.posiljkaID}}">{{posiljka.posiljkaID}}</option>
               </select>
             </p>
-
-            <p>Postna enota:
-              <select name="postneenote" formControlName="formPostnaEnotaID" >
-                <option *ngFor="let postnaenota of allPostnaEnota" value="{{postnaenota.postnaEnotaID}}">{{postnaenota.postnaEnotaID}}</option>
-              </select>
-            </p>
+           
             </form>
         </div>
       </div>
@@ -40,10 +35,10 @@
 
     <div *ngIf="!transactionFrom" class="col-md-offset-3 col-md-6">
       <div class="panel panel-default">
-        <div class="panel-heading"><strong>Izvedene transakcije</strong></div>
+        <div class="panel-heading"><strong>Transakcija izvedena</strong></div>
         <div class="panel-body">
           <form [formGroup]="myForm">
-            <p>ID transakcije: {{transactionID}}</p>
+            <p>ID transakcije {{transactionID}}</p>
           </form>
         </div>
       </div>

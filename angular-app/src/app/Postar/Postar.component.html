@@ -3,7 +3,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="addPostarModalLabel">Add Participant</h4>
+          <h4 class="modal-title" id="addPostarModalLabel">Dodaj poštarja</h4>
         </div>
         <form [formGroup]="myForm">
           <div class="modal-body">
@@ -22,8 +22,8 @@
               
           </div>
           <div class="modal-footer">
-            <button (click)="addPostar(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button (click)="addPostar(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Potrdi</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
           </div>
         </form>
       </div>
@@ -52,8 +52,8 @@
             
           </div>
           <div class="modal-footer">
-            <button (click)="updatePostar(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button (click)="updatePostar(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Potrdi</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
           </div>
         </form>
       </div>
@@ -65,7 +65,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="deletePostarModalLabel">Delete Asset</h4>
+          <h4 class="modal-title" id="deletePostarModalLabel">Zbrisi</h4>
         </div>
         <form [formGroup]="myForm" (ngSubmit)="deletePostar()">
           <div class="modal-body">
@@ -103,7 +103,7 @@
 
                   <th class="info">priimek</th>
                             
-                <th class="info">Actions</th>
+                <th class="info">možnosti</th>
             </tr>
           </thead>
           <tbody>
@@ -117,9 +117,9 @@
                   <td>{{postar.priimek}}</td>
                             
               <td>
-                <button (click)="getForm(postar.postarID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updatePostarModal">Update Asset</button>
+                <button (click)="getForm(postar.postarID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updatePostarModal">Posodobi</button>
   
-                <button (click)="setId(postar.postarID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostarModal">Delete Asset</button>
+                <button (click)="setId(postar.postarID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostarModal">Zbrisi</button>
               </td>
             </tr>
           </tbody>
