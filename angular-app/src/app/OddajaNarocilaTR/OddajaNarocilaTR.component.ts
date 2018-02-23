@@ -17,17 +17,17 @@ export class OddajaNarocilaTRComponent {
   private errorMessage;
   private transactionFrom;
 
-  private allPosiljke;
+  private allNarocila;
   private allPostneEnote;
 
-  private posiljka;
+  private narocilo;
   private postnaEnota;
 
   private OddajaNarocilaObj;
 
   private transactionID;
 
-    formPosiljkaID = new FormControl("", Validators.required);
+    formNarociloID = new FormControl("", Validators.required);
 	formPostnaEnotaNaziv = new FormControl("", Validators.required);
     action = new FormControl("", Validators.required);
 	value = new FormControl("", Validators.required);
@@ -36,7 +36,7 @@ export class OddajaNarocilaTRComponent {
 
 	  this.myForm = fb.group({
 
-		  formPosiljkaID:this.formPosiljkaID,
+		  formNarociloID:this.formNarociloID,
 		  formPostnaEnotaNaziv:this.formPostnaEnotaNaziv,
       action:this.action,
       value:this.value,
@@ -46,22 +46,22 @@ export class OddajaNarocilaTRComponent {
 
   ngOnInit(): void {
     this.transactionFrom  = true;
-    this.loadAllPosiljke()
+    this.loadAllNarocila()
     .then(() => {
             this.loadAllPostneEnote();
     });
   }
 
-  loadAllPosiljke(): Promise<any> {
+  loadAllNarocila(): Promise<any> {
     let tempList = [];
-    return this.serviceTransaction.getAllPosiljke()
+    return this.serviceTransaction.getAllNarocila()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(posiljka => {
-        tempList.push(posiljka);
+      result.forEach(narocilo => {
+        tempList.push(narocilo);
       });
-      this.allPosiljke = tempList;
+      this.allNarocila = tempList;
     })
     .catch((error) => {
         if(error == 'Server error'){
@@ -82,8 +82,8 @@ export class OddajaNarocilaTRComponent {
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(postnaenota => {
-        tempList.push(postnaenota);
+      result.forEach(postnaEnota => {
+        tempList.push(postnaEnota);
       });
       this.allPostneEnote = tempList;
     })
@@ -100,26 +100,22 @@ export class OddajaNarocilaTRComponent {
     });
   }
 
-<<<<<<< HEAD
-        
-}
-=======
   execute(form: any): Promise<any> {
 
-    console.log(this.allPosiljke);
+    console.log(this.allNarocila);
     console.log(this.allPostneEnote);
 
-    for (let posiljka of this.allPosiljke) {
-      console.log(posiljka.posiljkaID);
-      if(posiljka.posiljkaID == this.formPosiljkaID.value){
-        this.posiljka = posiljka;
+    for (let narocilo of this.allNarocila) {
+      console.log(narocilo.narociloID);
+      if(narocilo.narociloID == this.formNarociloID.value){
+        this.narocilo = narocilo;
       }
     }
 
     for (let postnaEnota of this.allPostneEnote) {
       console.log(postnaEnota.naziv);
       if(postnaEnota.naziv == this.formPostnaEnotaNaziv.value){
-        this.postnaEnota = this.postnaEnota;
+        this.postnaEnota = postnaEnota;
       }
     }
 
@@ -129,7 +125,7 @@ export class OddajaNarocilaTRComponent {
 
     this.OddajaNarocilaObj = {
       $class: "org.feri.model.OddajaNarocila",
-      "posiljka": this.formPosiljkaID.value,
+      "narocilo": this.formNarociloID.value,
       "postnaEnota": this.formPostnaEnotaNaziv.value
     };
 
@@ -157,4 +153,3 @@ export class OddajaNarocilaTRComponent {
           }
   }
     
->>>>>>> 2d68b0dd52a4d38e1adaf715360b0651c974bc5b
