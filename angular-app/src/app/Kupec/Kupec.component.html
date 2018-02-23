@@ -30,7 +30,7 @@
           </div>
 
           <div class="form-group text-left">
-            <label for="postnaSt">Postna st.</label>
+            <label for="postnaSt">Poštna številka</label>
               <input formControlName="postnaSt" type="number" class="form-control">
           </div>
 
@@ -40,12 +40,12 @@
           </div>
 
           <div class="form-group text-left">
-            <label for="hisnaSt">Hisna st.</label>
+            <label for="hisnaSt">Hišna številka</label>
               <input formControlName="hisnaSt" type="text" class="form-control">
           </div>
 
           <div class="form-group text-left">
-            <label for="stanje">Stanje</label>
+            <label for="stanje">Stanje na računu</label>
               <input formControlName="stanje" type="number" class="form-control">
           </div>
 
@@ -75,45 +75,45 @@
         <div class="modal-body">
 
             <div class="form-group text-left">
-              <label for="ime">ime</label>
+              <label for="ime">Ime</label>
                 <input [ngModel]="ime"formControlName="ime" type="text" class="form-control">
             </div>
           
             <div class="form-group text-left">
-              <label for="priimek">priimek</label>
+              <label for="priimek">Priimek</label>
                 <input [ngModel]="priimek"formControlName="priimek" type="text" class="form-control">
             </div>
 
             <div class="form-group text-left">
-              <label for="kraj">kraj</label>
+              <label for="kraj">Kraj</label>
                 <input [ngModel]="kraj"formControlName="kraj" type="text" class="form-control">
             </div>
 
             <div class="form-group text-left">
-              <label for="postnaSt">postnaSt</label>
+              <label for="postnaSt">Poštna številka</label>
                 <input [ngModel]="postnaSt"formControlName="postnaSt" type="number" class="form-control">
             </div>
 
             <div class="form-group text-left">
-              <label for="ulica">ulica</label>
+              <label for="ulica">Ulica</label>
                 <input [ngModel]="ulica"formControlName="ulica" type="text" class="form-control">
             </div>
 
 
             <div class="form-group text-left">
-              <label for="hisnaSt">hisnaSt</label>
+              <label for="hisnaSt">Hišna številka</label>
                 <input [ngModel]="hisnaSt"formControlName="hisnaSt" type="text" class="form-control">
             </div>
           
             <div class="form-group text-left">
-              <label for="banka">banka</label>
+              <label for="banka">Banka</label>
                 <input [ngModel]="banka"formControlName="banka" type="text" class="form-control">
            </div>
           
         </div>
         <div class="modal-footer">
-          <button (click)="updateKupec(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button (click)="updateKupec(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Posodobi</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
         </div>
       </form>
     </div>
@@ -125,11 +125,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="deleteKupecModalLabel">Delete Asset</h4>
+        <h4 class="modal-title" id="deleteKupecModalLabel">Izbriši kupca</h4>
       </div>
       <form [formGroup]="myForm" (ngSubmit)="deleteKupec()">
         <div class="modal-body">
-          Res zelite zbrisati?
+          Res zelite izbriši kupca?
         </div>
         <div class="modal-footer">
           <button (click)="deleteKupec()" type="submit" class="btn btn-danger" data-dismiss="modal">Da</button>
@@ -147,7 +147,7 @@
   <h1 id='assetName'>Kupec</h1>
   <div class="row">
     <div class="col-md-12 text-right">
-      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addKupecModal">Dodaj Kupca</button>
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addKupecModal">Dodajkupca</button>
     </div>
   </div>
   <br>
@@ -200,9 +200,9 @@
             <td>{{kupec.banka}}</td>
                           
             <td>
-              <button (click)="getForm(kupec.email);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateKupecModal">Update Asset</button>
+              <button (click)="getForm(kupec.email);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateKupecModal">Posodobi</button>
 
-              <button (click)="setId(kupec.email);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteKupecModal">Delete Asset</button>
+              <button (click)="setId(kupec.email);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteKupecModal">Izbriši</button>
             </td>
           </tr>
         </tbody>

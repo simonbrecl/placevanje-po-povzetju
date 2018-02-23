@@ -3,27 +3,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addAssetModalLabel">Dodaj posiljko</h4>
+        <h4 class="modal-title" id="addAssetModalLabel">Dodaj pošiljko</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
 
             
               <div class="form-group text-left">
-                <label for="narocilo">narocilo</label>
+                <label for="narocilo">Naročilo</label>
                 
                     <textarea formControlName="narocilo" class="form-control" rows="3"></textarea>
                 
               </div>
-            
           
-
             
-              
-          
-
-            
-              <label for="stanjePosiljke">stanjePosiljke</label>
+              <label for="stanjePosiljke">Stanje pošiljke</label>
               <div class="checkbox">
                 
                   <label>
@@ -97,7 +91,7 @@
 
             
               <div class="form-group text-left">
-                <label for="zadnjaSprememba">zadnjaSprememba</label>
+                <label for="zadnjaSprememba">Zadnja sprememba</label>
                 
                   <input formControlName="zadnjaSprememba" type="text" class="form-control">
                 
@@ -107,7 +101,7 @@
 
             
               <div class="form-group text-left">
-                <label for="postnaEnota">postnaEnota</label>
+                <label for="postnaEnota">Poštna enota</label>
                 
                     <textarea formControlName="postnaEnota" class="form-control" rows="3"></textarea>
                 
@@ -133,14 +127,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="updateAssetModalLabel">Update Asset</h4>
+        <h4 class="modal-title" id="updateAssetModalLabel">Posodobi pošiljko</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
 
           
             <div class="form-group text-left">
-              <label for="narocilo">narocilo</label>
+              <label for="narocilo">Narocilo</label>
 
               
                 
@@ -153,7 +147,7 @@
           
           
             <div class="form-group text-left">
-              <label for="stanjePosiljke">stanjePosiljke</label>
+              <label for="stanjePosiljke">Stanje pošiljke</label>
 
               
                 
@@ -238,7 +232,7 @@
             </div>
           
             <div class="form-group text-left">
-              <label for="zadnjaSprememba">zadnjaSprememba</label>
+              <label for="zadnjaSprememba">Zadnja sprememba</label>
 
               
                 <input [ngModel]="zadnjaSprememba"formControlName="zadnjaSprememba" type="text" class="form-control">
@@ -247,7 +241,7 @@
             </div>
           
             <div class="form-group text-left">
-              <label for="postnaEnota">postnaEnota</label>
+              <label for="postnaEnota">Poštna enota</label>
 
               
                 
@@ -261,8 +255,8 @@
 
         </div>
         <div class="modal-footer">
-          <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Posodobi</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
         </div>
       </form>
     </div>
@@ -276,11 +270,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="deleteAssetModalLabel">Zbrisi</h4>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Izbrisi</h4>
       </div>
       <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
         <div class="modal-body">
-          Res zelite zbrisati?
+          Res zelite izbrisati pošiljko?
         </div>
         <div class="modal-footer">
           <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Da</button>
@@ -308,7 +302,7 @@
   <h1 id='assetName'>Posiljka</h1>
   <div class="row">
     <div class="col-md-12 text-right">
-      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Dodaj</button>
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Dodaj pošiljko</button>
     </div>
   </div>
   <br>
@@ -320,16 +314,16 @@
             
                 <th class="info">posiljkaID</th>
             
-                <th class="info">narocilo</th>
+                <th class="info">Naročilo</th>
             
             
-                <th class="info">stanjePosiljke</th>
+                <th class="info">Stanje pošiljke</th>
             
-                <th class="info">zadnjaSprememba</th>
+                <th class="info">Zadnja sprememba</th>
             
-                <th class="info">postnaEnota</th>
+                <th class="info">Poštna enota</th>
             
-              <th class="info">možnosti</th>
+              <th class="info">Možnosti</th>
           </tr>
         </thead>
         <tbody>
@@ -350,7 +344,7 @@
             <td>
               <button (click)="getForm(asset.posiljkaID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Posodobi</button>
 
-              <button (click)="setId(asset.posiljkaID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Zbrisi</button>
+              <button (click)="setId(asset.posiljkaID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Izbriši</button>
             </td>
           </tr>
         </tbody>

@@ -3,51 +3,51 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="addPostnaEnotaModalLabel">Dodaj postno enoto</h4>
+          <h4 class="modal-title" id="addPostnaEnotaModalLabel">Dodaj poštno enoto</h4>
         </div>
         <form [formGroup]="myForm">
           <div class="modal-body">
   
                 <div class="form-group text-left">
-                  <label for="naziv">naziv</label>
+                  <label for="naziv">Naziv poštne enote</label>
                     <input formControlName="naziv" type="text" class="form-control">  
                 </div>
                 
                 <div class="form-group text-left">
-                  <label for="kraj">kraj</label>
+                  <label for="kraj">Kraj</label>
                     <input formControlName="kraj" type="text" class="form-control">  
                 </div>
 
                 <div class="form-group text-left">
-                  <label for="postnaSt">postnaSt</label>
+                  <label for="postnaSt">Poštna številka</label>
                     <input formControlName="postnaSt" type="number" class="form-control">  
                 </div>
 
                 <div class="form-group text-left">
-                  <label for="ulica">ulica</label>
+                  <label for="ulica">Ulica</label>
                     <input formControlName="ulica" type="text" class="form-control">  
                 </div>
 
                 <div class="form-group text-left">
-                  <label for="hisnaSt">hisnaSt</label>
+                  <label for="hisnaSt">Hišna številka</label>
                     <input formControlName="hisnaSt" type="text" class="form-control">  
                 </div>
               
                 <div class="form-group text-left">
-                  <label for="hranjenjePosiljke">hranjenjePosiljke</label>
+                  <label for="hranjenjePosiljke">Število dni hranitve do vrnitve prodajalcu</label>
                     <input formControlName="hranjenjePosiljke" type="number" class="form-control">
                 </div>
 
                 <div class="form-group text-left">
-                  <label for="postarji">postarji</label>
+                  <label for="postarji">Poštarji</label>
                     <input formControlName="postarji" type="text" class="form-control">
                 </div>
               
               
           </div>
           <div class="modal-footer">
-            <button (click)="addPostnaEnota(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button (click)="addPostnaEnota(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Potrdi</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
           </div>
         </form>
       </div>
@@ -65,32 +65,32 @@
           <div class="modal-body">
             
               <div class="form-group text-left">
-                <label for="kraj">kraj</label>
+                <label for="kraj">Kraj</label>
                   <input [ngModel]="kraj"formControlName="kraj" type="text" class="form-control">
               </div>
 
               <div class="form-group text-left">
-                <label for="postnaSt">postnaSt</label>
+                <label for="postnaSt">Poštna številka</label>
                   <input [ngModel]="postnaSt"formControlName="postnaSt" type="number" class="form-control">
               </div>
 
               <div class="form-group text-left">
-                <label for="ulica">ulica</label>
+                <label for="ulica">Ulica</label>
                   <input [ngModel]="ulica"formControlName="ulica" type="text" class="form-control">
               </div>
 
               <div class="form-group text-left">
-                <label for="hisnaSt">hisnaSt</label>
+                <label for="hisnaSt">Hišna številka</label>
                   <input [ngModel]="hisnaSt"formControlName="hisnaSt" type="text" class="form-control">
               </div>
                         
               <div class="form-group text-left">
-                <label for="hranjenjePosiljke">hranjenjePosiljke</label>
+                <label for="hranjenjePosiljke">Število dni hranitve do vrnitve prodajalcu</label>
                   <input [ngModel]="hranjenjePosiljke"formControlName="hranjenjePosiljke" type="number" class="form-control">
               </div>
             
               <div class="form-group text-left">
-                <label for="postarji">postarji</label>
+                <label for="postarji">Poštarji</label>
                   <input [ngModel]="postarji"formControlName="postarji" type="text" class="form-control">
              </div>
             
@@ -109,11 +109,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="deletePostnaEnotaModalLabel">Delete Asset</h4>
+          <h4 class="modal-title" id="deletePostnaEnotaModalLabel">Izbriši</h4>
         </div>
         <form [formGroup]="myForm" (ngSubmit)="deletePostnaEnota()">
           <div class="modal-body">
-            Res zelite zbrisati?
+            Res zelite izbrisati poštno enoto?
           </div>
           <div class="modal-footer">
             <button (click)="deletePostnaEnota()" type="submit" class="btn btn-danger" data-dismiss="modal">Da</button>
@@ -128,10 +128,10 @@
       <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
           <strong>Error:</strong> {{errorMessage}}
       </div>
-    <h1 id='assetName'>PostnaEnota</h1>
+    <h1 id='assetName'>Postna enota</h1>
     <div class="row">
       <div class="col-md-12 text-right">
-        <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPostnaEnotaModal">Dodaj postno enoto</button>
+        <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPostnaEnotaModal">Dodaj poštno enoto</button>
       </div>
     </div>
     <br>
@@ -141,21 +141,21 @@
           <thead class="thead">
             <tr class="thead-cols">
                   
-                  <th class="info">naziv</th>
+                  <th class="info">Naziv</th>
               
-                  <th class="info">kraj</th>
+                  <th class="info">Kraj</th>
 
-                  <th class="info">postnaSt</th>
+                  <th class="info">Poštna številka</th>
 
-                  <th class="info">ulica</th>
+                  <th class="info">Ulica</th>
 
-                  <th class="info">hisnaSt</th>
+                  <th class="info">Hišna številka</th>
               
-                  <th class="info">hranjenjePosiljke</th>
+                  <th class="info">Število dni hranitve do vrnitve prodajalcu</th>
 
-                  <th class="info">postarji</th>
+                  <th class="info">Poštarji</th>
                                           
-                <th class="info">možnosti</th>
+                <th class="info">Možnosti</th>
             </tr>
           </thead>
           <tbody>
@@ -177,9 +177,9 @@
                   <td>{{postnaEnota.postarji}}</td>
                                           
               <td>
-                <button (click)="getForm(postnaEnota.naziv);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updatePostnaEnotaModal">Update Asset</button>
+                <button (click)="getForm(postnaEnota.naziv);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updatePostnaEnotaModal">Posodobi</button>
   
-                <button (click)="setId(postnaEnota.naziv);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostnaEnotaModal">Delete Asset</button>
+                <button (click)="setId(postnaEnota.naziv);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostnaEnotaModal">Izbriši</button>
               </td>
             </tr>
           </tbody>

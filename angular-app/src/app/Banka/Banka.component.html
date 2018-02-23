@@ -9,37 +9,37 @@
           <div class="modal-body">
   
                 <div class="form-group text-left">
-                  <label for="naziv">naziv</label>
+                  <label for="naziv">Naziv banke</label>
                     <input formControlName="naziv" type="text" class="form-control">  
                 </div>
                 
                 <div class="form-group text-left">
-                  <label for="kraj">kraj</label>
+                  <label for="kraj">Kraj</label>
                     <input formControlName="kraj" type="text" class="form-control">  
                 </div>
 
                 <div class="form-group text-left">
-                  <label for="postnaSt">postnaSt</label>
+                  <label for="postnaSt">Poštna številka</label>
                     <input formControlName="postnaSt" type="number" class="form-control">  
                 </div>
 
                 <div class="form-group text-left">
-                  <label for="ulica">ulica</label>
+                  <label for="ulica">Ulica</label>
                     <input formControlName="ulica" type="text" class="form-control">  
                 </div>
 
                 <div class="form-group text-left">
-                  <label for="hisnaSt">hisnaSt</label>
+                  <label for="hisnaSt">Hišna številka</label>
                     <input formControlName="hisnaSt" type="text" class="form-control">  
                 </div>
               
                 <div class="form-group text-left">
-                  <label for="dovoljenProcent">dovoljenProcent</label>
+                  <label for="dovoljenProcent">Dovoljen procent neplačanih</label>
                     <input formControlName="dovoljenProcent" type="number" class="form-control">
                 </div>
                 
                 <div class="form-group text-left">
-                  <label for="odobrenZnesekDo">odobrenZnesekDo</label>
+                  <label for="odobrenZnesekDo">Odobren znesek brez pregleda zgodovine</label>
                     <input formControlName="odobrenZnesekDo" type="number" class="form-control">
                 </div>
               
@@ -64,37 +64,32 @@
           <div class="modal-body">
             
               <div class="form-group text-left">
-                <label for="kraj">kraj</label>
+                <label for="kraj">Kraj</label>
                   <input [ngModel]="kraj"formControlName="kraj" type="text" class="form-control">
               </div>
 
               <div class="form-group text-left">
-                <label for="postnaSt">postnaSt</label>
+                <label for="postnaSt">Poštna številka</label>
                   <input [ngModel]="postnaSt"formControlName="postnaSt" type="number" class="form-control">
               </div>
 
               <div class="form-group text-left">
-                <label for="ulica">ulica</label>
+                <label for="ulica">Ulica</label>
                   <input [ngModel]="ulica"formControlName="ulica" type="text" class="form-control">
               </div>
 
               <div class="form-group text-left">
-                <label for="hisnaSt">hisnaSt</label>
+                <label for="hisnaSt">Hišna številka</label>
                   <input [ngModel]="hisnaSt"formControlName="hisnaSt" type="text" class="form-control">
-              </div>
-                        
-              <div class="form-group text-left">
-                <label for="stanje">stanje</label>
-                  <input [ngModel]="stanje"formControlName="stanje" type="number" class="form-control">
               </div>
             
               <div class="form-group text-left">
-                <label for="dovoljenProcent">dovoljenProcent</label>
+                <label for="dovoljenProcent">Dovoljen procent neplačanih</label>
                   <input [ngModel]="dovoljenProcent"formControlName="dovoljenProcent" type="number" class="form-control">
              </div>
 
              <div class="form-group text-left">
-              <label for="odobrenZnesekDo">odobrenZnesekDo</label>
+              <label for="odobrenZnesekDo">Odobren znesek brez pregleda zgodovine</label>
                 <input [ngModel]="odobrenZnesekDo"formControlName="odobrenZnesekDo" type="number" class="form-control">
            </div>
             
@@ -113,11 +108,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="deleteBankaModalLabel">Zbrisi banko</h4>
+          <h4 class="modal-title" id="deleteBankaModalLabel">Izbriši banko</h4>
         </div>
         <form [formGroup]="myForm" (ngSubmit)="deleteBanka()">
           <div class="modal-body">
-            Ali res zelite zbrisati banko?
+            Ali res zelite izbrisati banko?
           </div>
           <div class="modal-footer">
             <button (click)="deleteBanka()" type="submit" class="btn btn-danger" data-dismiss="modal">Da</button>
@@ -145,21 +140,21 @@
           <thead class="thead">
             <tr class="thead-cols">
                   
-                  <th class="info">naziv</th>
+                  <th class="info">Naziv</th>
               
-                  <th class="info">kraj</th>
+                  <th class="info">Kraj</th>
 
-                  <th class="info">postnaSt</th>
+                  <th class="info">Poštna številka</th>
 
-                  <th class="info">ulica</th>
+                  <th class="info">Ulica</th>
 
-                  <th class="info">hisnaSt</th>
+                  <th class="info">Hišna številka</th>
                             
-                  <th class="info">dovoljenProcent</th>
+                  <th class="info">Dovoljen procent neplačanih</th>
 
-                  <th class="info">odobrenZnesekDo</th>
+                  <th class="info">Odobren znesek brez pregleda zgodovine</th>
                             
-                <th class="info">možnosti</th>
+                <th class="info">Možnosti</th>
             </tr>
           </thead>
           <tbody>
@@ -181,9 +176,9 @@
                   <td>{{banka.odobrenZnesekDo}}</td>
                             
               <td>
-                <button (click)="getForm(banka.naziv);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateBankaModal">Update Asset</button>
+                <button (click)="getForm(banka.naziv);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateBankaModal">Posodobi</button>
   
-                <button (click)="setId(banka.naziv);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteBankaModal">Delete Asset</button>
+                <button (click)="setId(banka.naziv);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteBankaModal">Izbriši</button>
               </td>
             </tr>
           </tbody>

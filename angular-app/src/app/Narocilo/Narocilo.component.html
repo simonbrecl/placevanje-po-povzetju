@@ -3,94 +3,35 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addAssetModalLabel">Dodaj Naročilo</h4>
+        <h4 class="modal-title" id="addAssetModalLabel">Dodaj naročilo</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
 
             
               <div class="form-group text-left">
-                <label for="izdelki">izdelki</label>
+                <label for="izdelki">Izdelki</label>
                 
                     <textarea formControlName="izdelki" class="form-control" rows="3"></textarea>
                 
               </div>
             
-          
-
-            
               <div class="form-group text-left">
-                <label for="kupec">kupec</label>
+                <label for="kupec">Kupec</label>
                 
                     <textarea formControlName="kupec" class="form-control" rows="3"></textarea>
                 
               </div>
             
-          
-
-            
-              
-          
-
-            
-              <label for="stanjeNarocila">stanjeNarocila</label>
-              <div class="checkbox">
-                
-                  <label>
-                    <input
-                      
-                        formControlName="stanjeNarocila"
-                      
-                      name="stanjeNarocila"
-                      value="NEODLOCENO"
-                      type="radio"
-                      
-                    />
-                    NEODLOCENO
-                  </label>
-                
-                  <label>
-                    <input
-                      
-                        formControlName="stanjeNarocila"
-                      
-                      name="stanjeNarocila"
-                      value="ODOBRENO"
-                      type="radio"
-                      
-                    />
-                    ODOBRENO
-                  </label>
-                
-                  <label>
-                    <input
-                      
-                        formControlName="stanjeNarocila"
-                      
-                      name="stanjeNarocila"
-                      value="ZAVRNJENO"
-                      type="radio"
-                      
-                    />
-                    ZAVRNJENO
-                  </label>
-                
-              </div>
-            
-          
-
             
               <div class="form-group text-left">
-                <label for="casUstvarjeno">casUstvarjeno</label>
+                <label for="casUstvarjeno">Čas ustvarjeno</label>
                 
                   <input formControlName="casUstvarjeno" type="text" class="form-control">
                 
               </div>
-            
-          
-
-            
-              <label for="lokacijaPrevzema">lokacijaPrevzema</label>
+ 
+              <label for="lokacijaPrevzema">Lokacija prevzema</label>
               <div class="checkbox">
                 
                   <label>
@@ -141,25 +82,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="updateAssetModalLabel">Posodobi</h4>
+        <h4 class="modal-title" id="updateAssetModalLabel">Posodobi naročilo</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
 
           
             <div class="form-group text-left">
-              <label for="izdelki">izdelki</label>
-
-              
+              <label for="izdelki">Izdelki</label>
                 
                   <textarea [ngModel]="izdelki" formControlName="izdelki" class="form-control" rows="3"></textarea>
                 
-              
-
             </div>
-          
+
             <div class="form-group text-left">
-              <label for="kupec">kupec</label>
+              <label for="kupec">Kupec</label>
 
               
                 
@@ -170,75 +107,8 @@
             </div>
           
           
-          
             <div class="form-group text-left">
-              <label for="stanjeNarocila">stanjeNarocila</label>
-
-              
-                
-                  <div class="row">
-                    <div class="col-xs-12 checkbox">
-                    
-                      <label>
-                        <input
-                          
-                            formControlName="stanjeNarocila"
-                            [ngModel]="stanjeNarocila"
-                          
-                          name="stanjeNarocila"
-                          value="NEODLOCENO"
-                          type="radio"
-                          
-                        />
-                        NEODLOCENO
-                      </label>
-                    
-                      <label>
-                        <input
-                          
-                            formControlName="stanjeNarocila"
-                            [ngModel]="stanjeNarocila"
-                          
-                          name="stanjeNarocila"
-                          value="ODOBRENO"
-                          type="radio"
-                          
-                        />
-                        ODOBRENO
-                      </label>
-                    
-                      <label>
-                        <input
-                          
-                            formControlName="stanjeNarocila"
-                            [ngModel]="stanjeNarocila"
-                          
-                          name="stanjeNarocila"
-                          value="ZAVRNJENO"
-                          type="radio"
-                          
-                        />
-                        ZAVRNJENO
-                      </label>
-                    
-                    </div>
-                  </div>
-                
-              
-
-            </div>
-          
-            <div class="form-group text-left">
-              <label for="casUstvarjeno">casUstvarjeno</label>
-
-              
-                <input [ngModel]="casUstvarjeno"formControlName="casUstvarjeno" type="text" class="form-control">
-              
-
-            </div>
-          
-            <div class="form-group text-left">
-              <label for="lokacijaPrevzema">lokacijaPrevzema</label>
+              <label for="lokacijaPrevzema">Lokacija prevzema</label>
 
               
                 
@@ -299,11 +169,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="deleteAssetModalLabel">Zbrisi</h4>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Izbrisi</h4>
       </div>
       <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
         <div class="modal-body">
-          Res zelite zbrisati?
+          Res zelite izbrisati naročilo?
         </div>
         <div class="modal-footer">
           <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Da</button>
@@ -328,7 +198,7 @@
 	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
 		<strong>Error:</strong> {{errorMessage}}
 	</div>
-  <h1 id='assetName'>Narocilo</h1>
+  <h1 id='assetName'>Naročilo</h1>
   <div class="row">
     <div class="col-md-12 text-right">
       <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Dodaj naročilo</button>
@@ -343,18 +213,18 @@
             
                 <th class="info">narociloID</th>
             
-                <th class="info">izdelki</th>
+                <th class="info">Izdelki</th>
             
-                <th class="info">kupec</th>
+                <th class="info">Kupec</th>
             
             
-                <th class="info">stanjeNarocila</th>
+                <th class="info">Stanje naročila</th>
             
-                <th class="info">casUstvarjeno</th>
+                <th class="info">Čas ustvarjeno</th>
             
-                <th class="info">lokacijaPrevzema</th>
+                <th class="info">Lokacija prevzema</th>
             
-              <th class="info">možnosti</th>
+              <th class="info">Možnosti</th>
           </tr>
         </thead>
         <tbody>
@@ -367,7 +237,6 @@
             
                 <td>{{asset.kupec}}</td>
             
-            
                 <td>{{asset.stanjeNarocila}}</td>
             
                 <td>{{asset.casUstvarjeno}}</td>
@@ -377,7 +246,7 @@
             <td>
               <button (click)="getForm(asset.narociloID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Posodobi</button>
 
-              <button (click)="setId(asset.narociloID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Zbrisi</button>
+              <button (click)="setId(asset.narociloID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Izbrisi</button>
             </td>
           </tr>
         </tbody>

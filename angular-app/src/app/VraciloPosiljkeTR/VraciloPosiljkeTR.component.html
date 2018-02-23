@@ -7,7 +7,7 @@
 	</div>
 
   <div class="row">
-      <h1>Vračilo pošiljke</h1>
+      <h1>Vračilo pošiljke prodajalcu</h1>
   </div>
 
   <div class="row">
@@ -22,7 +22,7 @@
         <div class="panel-body">
           <form [formGroup]="myForm">
 
-            <p>Posiljka:
+            <p>Pošiljka:
               <select name="posiljke" formControlName="formPosiljkaID">
                 <option *ngFor="let posiljka of allPosiljke" value="{{posiljka.posiljkaID}}">{{posiljka.posiljkaID}}</option>
               </select>

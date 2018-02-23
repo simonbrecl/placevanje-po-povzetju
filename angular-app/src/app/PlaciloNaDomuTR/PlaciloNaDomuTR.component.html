@@ -22,13 +22,13 @@
         <div class="panel-body">
           <form [formGroup]="myForm">
 
-            <p>Posiljka:
+            <p>Pošiljka:
               <select name="posiljke" formControlName="formPosiljkaID">
                 <option *ngFor="let posiljka of allPosiljke" value="{{posiljka.posiljkaID}}">{{posiljka.posiljkaID}}</option>
               </select>
             </p>
 
-            <p>Postar:
+            <p>Poštar:
               <select name="postarji" formControlName="formPostarID" >
                 <option *ngFor="let postar of allPostarji" value="{{postar.postarID}}">{{postar.postarID}}</option>
               </select>

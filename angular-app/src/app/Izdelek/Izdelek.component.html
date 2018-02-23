@@ -10,24 +10,21 @@
 
 
               <div class="form-group text-left">
-                <label for="naziv">naziv</label>
+                <label for="naziv">Naziv izdelka</label>
 
                   <input formControlName="naziv" type="text" class="form-control">
 
               </div>
 
               <div class="form-group text-left">
-                <label for="cena">cena</label>
+                <label for="cena">Cena</label>
 
                   <input formControlName="cena" type="number" step='any' class="form-control">
 
               </div>
 
-
-
-
               <div class="form-group text-left">
-                <label for="prodajalec">prodajalec</label>
+                <label for="prodajalec">Prodajalec</label>
 
                     <textarea formControlName="prodajalec" class="form-control" rows="3"></textarea>
 
@@ -53,36 +50,32 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="updateAssetModalLabel">Posodobi</h4>
+        <h4 class="modal-title" id="updateAssetModalLabel">Posodobi izdelek</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
 
 
             <div class="form-group text-left">
-              <label for="naziv">naziv</label>
-
+              <label for="naziv">Naziv</label>
 
                 <input [ngModel]="naziv"formControlName="naziv" type="text" class="form-control">
-
 
             </div>
 
 
             <div class="form-group text-left">
-              <label for="cena">cena</label>
-
+              <label for="cena">Cena</label>
 
                 <input [ngModel]="cena" formControlName="cena" type="number" step='any' class="form-control">
-
 
             </div>
 
 
         </div>
         <div class="modal-footer">
-          <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Posodobi</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
         </div>
       </form>
     </div>
@@ -96,11 +89,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="deleteAssetModalLabel">Zbrisi vir</h4>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Izbriši izdelek</h4>
       </div>
       <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
         <div class="modal-body">
-          Res zelite zbrisati izdelek?
+          Res zelite izbrisati izdelek?
         </div>
         <div class="modal-footer">
           <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Da</button>
@@ -132,13 +125,13 @@
 
                 <th class="info">izdelekID</th>
 
-                <th class="info">naziv</th>
+                <th class="info">Naziv</th>
 
-                <th class="info">cena</th>
+                <th class="info">Cena</th>
 
-                <th class="info">prodajalec</th>
+                <th class="info">Prodajalec</th>
 
-              <th class="info">možnosti</th>
+              <th class="info">Možnosti</th>
           </tr>
         </thead>
         <tbody>
@@ -156,7 +149,7 @@
             <td>
               <button (click)="getForm(asset.izdelekID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateAssetModal">Posodobi</button>
 
-              <button (click)="setId(asset.izdelekID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Zbrisi</button>
+              <button (click)="setId(asset.izdelekID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Izbriši</button>
             </td>
           </tr>
         </tbody>
