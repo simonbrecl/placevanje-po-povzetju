@@ -7,7 +7,7 @@
 	</div>
 
   <div class="row">
-      <h1>Oddaja naročila </h1>
+      <h1>Oddaja narocila </h1>
   </div>
 
   <div class="row">
@@ -22,15 +22,15 @@
         <div class="panel-body">
           <form [formGroup]="myForm">
 
-            <p>Naročilo:
+            <p>Narocilo:
               <select name="narocila" formControlName="formNarociloID">
                 <option *ngFor="let narocilo of allNarocila" value="{{narocilo.narociloID}}">{{narocilo.narociloID}}</option>
               </select>
             </p>
 
-            <p>Poštna enota:
+            <p>Postna enota:
               <select name="postneenote" formControlName="formPostnaEnotaID" >
-                <option *ngFor="let postnaenota of allPostnaEnota" value="{{postnaenota.naziv}}">{{postnaenota.naziv}}</option>
+                <option *ngFor="let postnaEnota of allPostnaEnota" value="{{postnaEnota.naziv}}">{{postnaEnota.naziv}}</option>
               </select>
             </p>
             </form>
