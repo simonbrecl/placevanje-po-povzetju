@@ -8,7 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Configuration } from '../configuration';
 import { DataService } from '../data.service';
 import { OddajaNarocilaTRComponent } from './OddajaNarocilaTR.component';
-import { OddajaNarocilaTRService} from './OddajaNarocilaTR.service';
+import {OddajaNarocilaTRService} from './OddajaNarocilaTR.service';
+
 describe('TransactionComponent', () => {
   let component: OddajaNarocilaTRComponent;
   let fixture: ComponentFixture<OddajaNarocilaTRComponent>;

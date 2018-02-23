@@ -13,56 +13,55 @@ import 'rxjs/add/operator/toPromise';
 })
 export class OddajaNarocilaTRComponent {
 
-  
   myForm: FormGroup;
   private errorMessage;
   private transactionFrom;
 
-  private allNarocila;
-  private allPostnaEnota;
+  private allPosiljke;
+  private allPostneEnote;
 
-  private narocilo;
+  private posiljka;
   private postnaEnota;
 
   private OddajaNarocilaObj;
 
   private transactionID;
-  
-    formPostnaEnotaID = new FormControl("", Validators.required);
-	  formNarociloID = new FormControl("", Validators.required); 
-    action = new FormControl("", Validators.required); 
-	  value = new FormControl("", Validators.required);	  
-  
+
+    formPosiljkaID = new FormControl("", Validators.required);
+	formPostnaEnotaNaziv = new FormControl("", Validators.required);
+    action = new FormControl("", Validators.required);
+	value = new FormControl("", Validators.required);
+
   constructor(private serviceTransaction:OddajaNarocilaTRService, fb: FormBuilder) {
-      
+
 	  this.myForm = fb.group({
-		  
-		  formPostnaEnotaID:this.formPostnaEnotaID,
-		  formNarociloID:this.formNarociloID,
+
+		  formPosiljkaID:this.formPosiljkaID,
+		  formPostnaEnotaNaziv:this.formPostnaEnotaNaziv,
       action:this.action,
       value:this.value,
-      
-    });   
+
+    });
   };
 
   ngOnInit(): void {
     this.transactionFrom  = true;
-    this.loadAllPostnaEnota()
-    .then(() => {                     
-            this.loadAllNarocila();
-    });    
+    this.loadAllPosiljke()
+    .then(() => {
+            this.loadAllPostneEnote();
+    });
   }
 
-  loadAllNarocila(): Promise<any> {
+  loadAllPosiljke(): Promise<any> {
     let tempList = [];
-    return this.serviceTransaction.getAllNarocila()
+    return this.serviceTransaction.getAllPosiljke()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(narocilo => {
-        tempList.push(narocilo);
+      result.forEach(posiljka => {
+        tempList.push(posiljka);
       });
-      this.allNarocila = tempList;
+      this.allPosiljke = tempList;
     })
     .catch((error) => {
         if(error == 'Server error'){
@@ -76,17 +75,17 @@ export class OddajaNarocilaTRComponent {
         }
     });
   }
-  
-    loadAllPostnaEnota(): Promise<any> {
+
+  loadAllPostneEnote(): Promise<any> {
     let tempList = [];
-    return this.serviceTransaction.getAllPostnaEnota()
+    return this.serviceTransaction.getAllPostneEnote()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
       result.forEach(postnaEnota => {
         tempList.push(postnaEnota);
       });
-      this.allPostnaEnota = tempList;
+      this.allPostneEnote = tempList;
     })
     .catch((error) => {
         if(error == 'Server error'){
@@ -103,31 +102,31 @@ export class OddajaNarocilaTRComponent {
 
   execute(form: any): Promise<any> {
 
-    console.log(this.allNarocila);
-    console.log(this.allPostnaEnota);
+    console.log(this.allPosiljke);
+    console.log(this.allPostneEnote);
 
-    for (let postnaEnota of this.allPostnaEnota) {
-      console.log(postnaEnota.naziv);
-      if(postnaEnota.naziv == this.formPostnaEnotaID.value){
-        this.postnaEnota = postnaEnota;
+    for (let posiljka of this.allPosiljke) {
+      console.log(posiljka.posiljkaID);
+      if(posiljka.posiljkaID == this.formPosiljkaID.value){
+        this.posiljka = posiljka;
       }
     }
 
-    for (let narocilo of this.allNarocila) {
-      console.log(narocilo.narociloID);
-      if(narocilo.narociloID == this.formNarociloID.value){
-        this.narocilo = narocilo;
+    for (let postnaEnota of this.allPostneEnote) {
+      console.log(postnaEnota.naziv);
+      if(postnaEnota.naziv == this.formPostnaEnotaNaziv.value){
+        this.postnaEnota = this.postnaEnota;
       }
     }
 
     console.log('Action: ' + this.action.value)
 
-
+   
 
     this.OddajaNarocilaObj = {
       $class: "org.feri.model.OddajaNarocila",
-      "narocilo": this.formNarociloID.value,
-      "postnaEnota": this.formPostnaEnotaID.value
+      "posiljka": this.formPosiljkaID.value,
+      "postnaEnota": this.formPostnaEnotaNaziv.value
     };
 
     return this.serviceTransaction.OddajaNarocila(this.OddajaNarocilaObj)
@@ -152,6 +151,5 @@ export class OddajaNarocilaTRComponent {
               this.transactionFrom = false;
             });
           }
-
-        
-}
+  }
+    

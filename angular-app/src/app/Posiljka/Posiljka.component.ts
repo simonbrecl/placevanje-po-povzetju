@@ -141,7 +141,7 @@ export class PosiljkaComponent implements OnInit {
       $class: "org.feri.model.Posiljka",
       
         
-        "posiljkaID":"POSILJKA" + makeid(),
+        "posiljkaID":"POSILJKA_" + makeid(),
         
       
         
