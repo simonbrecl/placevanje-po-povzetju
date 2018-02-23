@@ -18,18 +18,14 @@ export class OddajaNarocilaTRComponent {
   private errorMessage;
   private transactionFrom;
 
-  private allNarocila;
+  private allAssets;
   private allPostnaEnota;
 
-  private narocilo;
-  private postnaEnota;
-
-  private OddajaNarocilaObj;
-
-  private transactionID;
+  private asset;
+  private postnaenota;
   
     formPostnaEnotaID = new FormControl("", Validators.required);
-	  formNarociloID = new FormControl("", Validators.required); 
+	  formAssetID = new FormControl("", Validators.required); 
     action = new FormControl("", Validators.required); 
 	  value = new FormControl("", Validators.required);	  
   
@@ -38,7 +34,7 @@ export class OddajaNarocilaTRComponent {
 	  this.myForm = fb.group({
 		  
 		  formPostnaEnotaID:this.formPostnaEnotaID,
-		  formNarociloID:this.formNarociloID,
+		  formAssetID:this.formAssetID,
       action:this.action,
       value:this.value,
       
@@ -49,20 +45,20 @@ export class OddajaNarocilaTRComponent {
     this.transactionFrom  = true;
     this.loadAllPostnaEnota()
     .then(() => {                     
-            this.loadAllNarocila();
+            this.loadAllAsset();
     });    
   }
 
-  loadAllNarocila(): Promise<any> {
+  loadAllAsset(): Promise<any> {
     let tempList = [];
-    return this.serviceTransaction.getAllNarocila()
+    return this.serviceTransaction.getAllAssets()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(narocilo => {
-        tempList.push(narocilo);
+      result.forEach(asset => {
+        tempList.push(asset);
       });
-      this.allNarocila = tempList;
+      this.allAssets = tempList;
     })
     .catch((error) => {
         if(error == 'Server error'){
@@ -83,8 +79,8 @@ export class OddajaNarocilaTRComponent {
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(postnaEnota => {
-        tempList.push(postnaEnota);
+      result.forEach(postnaenota => {
+        tempList.push(postnaenota);
       });
       this.allPostnaEnota = tempList;
     })
@@ -100,58 +96,6 @@ export class OddajaNarocilaTRComponent {
         }
     });
   }
-
-  execute(form: any): Promise<any> {
-
-    console.log(this.allNarocila);
-    console.log(this.allPostnaEnota);
-
-    for (let postnaEnota of this.allPostnaEnota) {
-      console.log(postnaEnota.naziv);
-      if(postnaEnota.naziv == this.formPostnaEnotaID.value){
-        this.postnaEnota = postnaEnota;
-      }
-    }
-
-    for (let narocilo of this.allNarocila) {
-      console.log(narocilo.narociloID);
-      if(narocilo.narociloID == this.formNarociloID.value){
-        this.narocilo = narocilo;
-      }
-    }
-
-    console.log('Action: ' + this.action.value)
-
-
-
-    this.OddajaNarocilaObj = {
-      $class: "org.feri.model.OddajaNarocila",
-      "narocilo": this.formNarociloID.value,
-      "postnaEnota": this.formPostnaEnotaID.value
-    };
-
-    return this.serviceTransaction.OddajaNarocila(this.OddajaNarocilaObj)
-            .toPromise()
-            .then((result) => {
-              this.errorMessage = null;
-              this.transactionID = result.transactionId;
-              console.log(result)
-            })
-            .catch((error) => {
-                if(error == 'Server error'){
-                    this.errorMessage = "Could not connect to REST server. Please check your configuration details";
-                }
-                else if(error == '404 - Not Found'){
-                this.errorMessage = "404 - Could not find API route. Please check your available APIs."
-                }
-                else{
-                    this.errorMessage = error;
-                }
-            })
-            .then(() => {
-              this.transactionFrom = false;
-            });
-          }
 
         
 }
