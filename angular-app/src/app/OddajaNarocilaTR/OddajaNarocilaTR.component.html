@@ -1,66 +1,68 @@
-
-
 <div class="container">
 
-  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
-		<strong>Error:</strong> {{errorMessage}}
-	</div>
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+          <strong>Error:</strong> {{errorMessage}}
+      </div>
+  
+    <div class="row">
+        <h1>Oddaja naročila</h1>
+    </div>
+  
+    <div class="row">
+      <br>
+    </div>
+  
+    <div class="row RR">
+      <div *ngIf="transactionFrom" class="col-md-offset-3 col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading"> <strong>Vnesite podrobnosti </strong>
+          </div>
+          <div class="panel-body">
+            <form [formGroup]="myForm">
+  
+              <p>Posiljka:
+                <select name="posiljke" formControlName="formPosiljkaID">
+                  <option *ngFor="let posiljka of allPosiljke" value="{{posiljka.posiljkaID}}">{{posiljka.posiljkaID}}</option>
+                </select>
+              </p>
 
-  <div class="row">
-      <h1>Oddaja narocila </h1>
-  </div>
-  <div class="row">
-    <br>
-  </div>
+              <p>Poštna enota:
+                <select name="postneEnote" formControlName="formPostnaEnotaNaziv" >
+                  <option *ngFor="let postnaEnota of allPostneEnote" value="{{postnaEnota.naziv}}">{{postnaEnota.naziv}}</option>
+                </select>
+              </p>
 
-  <div class="row RR">
-    <div *ngIf="transactionFrom" class="col-md-offset-3 col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading"> <strong>Oddaja narocila </strong>
+  
+              </form>
+          </div>
         </div>
-        <div class="panel-body">
-          <form [formGroup]="myForm">
-
-            <p>Narocilo:
-              <select name="allAssets" formControlName="formAssetID">
-                <option *ngFor="let asset of allAssets" value="{{asset.narociloID}}">{{asset.narociloID}}</option>
-              </select>
-            </p>
-
-            <p>Postna enota:
-              <select name="allPostnaEnota" formControlName="formPostnaEnotaID" >
-                <option *ngFor="let postnaenota of allPostnaEnota" value="{{postnaenota.postnaEnotaID}}">{{postnaenota.postnaEnotaID}}</option>
-              </select>
-            </p>
+      </div>
+  
+      <div *ngIf="!transactionFrom" class="col-md-offset-3 col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>Transakcija izvedena</strong></div>
+          <div class="panel-body">
+            <form [formGroup]="myForm">
+              <p>ID transakcije {{transactionID}}</p>
             </form>
+          </div>
         </div>
       </div>
+  
     </div>
-
-    <div *ngIf="!transactionFrom" class="col-md-offset-3 col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading"><strong>Izvedene transakcije</strong></div>
-        <div class="panel-body">
-          <form [formGroup]="myForm">
-            <p>ID transakcije: {{transactionID}}</p>
-          </form>
-        </div>
+  
+    <div class="row">
+      <div *ngIf="transactionFrom" class="col-md-offset-4 col-md-4">
+      <button (click)="execute(form);" type="button" class="btn btn-success" data-toggle="modal" >Izvedi transakcijo</button>
+  
       </div>
     </div>
-
-  </div>
-
-  <div class="row">
-    <div *ngIf="transactionFrom" class="col-md-offset-4 col-md-4">
-    <button (click)="execute(form);" type="button" class="btn btn-success" data-toggle="modal" >Izvedi transakcijo</button>
-
+  
+    <div class="row">
+      <br>
+      <br>
     </div>
+  
+  
   </div>
-
-  <div class="row">
-    <br>
-    <br>
-  </div>
-
-
-</div>
+  

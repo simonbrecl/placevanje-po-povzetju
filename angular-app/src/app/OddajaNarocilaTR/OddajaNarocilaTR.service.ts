@@ -2,22 +2,26 @@ import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs/Observable';
 
-import {Narocilo } from '../org.feri.model';
-import {PostnaEnota } from '../org.feri.model';
+import {Posiljka, PostnaEnota, OddajaNarocila } from '../org.feri.model';
 
 import 'rxjs/Rx';
 
 @Injectable()
 export class OddajaNarocilaTRService {
 
-	  private NAROCILO: string = 'Narocilo';
-    private POSTNAENOTA: string = 'PostnaEnota';
+	private POSTNA_ENOTA: string = 'PostnaEnota';
+    private POSILJKA: string = 'Posiljka';
+    private ODDAJA_NAROCILA: string = 'OddajaNarocila';
 
-    constructor(private PostnaEnotaService: DataService<PostnaEnota>, private narociloService: DataService<Narocilo>) {
+    constructor(private PosiljkaService: DataService<Posiljka>, private PostnaEnotaService: DataService<PostnaEnota>, private OddajaNarocilaService: DataService<OddajaNarocila>) {
     };
 
-    public getAllPostnaEnota(): Observable<PostnaEnota[]> {
-        return this.PostnaEnotaService.getAll(this.POSTNAENOTA);
+    public getAllPosiljke(): Observable<Posiljka[]> {
+        return this.PosiljkaService.getAll(this.POSILJKA);
+    }
+
+    public getAllPostneEnote(): Observable<PostnaEnota[]> {
+        return this.PostnaEnotaService.getAll(this.POSTNA_ENOTA);
     }
 
     public getAllAssets(): Observable<Narocilo[]> {
