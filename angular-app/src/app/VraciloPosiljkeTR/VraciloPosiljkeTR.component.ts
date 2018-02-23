@@ -85,7 +85,7 @@ export class VraciloPosiljkeTRComponent {
    
 
     this.PosiljkaObj = {
-      $class: "org.feri.model.Posiljka",
+      $class: "org.feri.model.VraciloPosiljke",
       "posiljka": this.formPosiljkaID.value,
     };
 

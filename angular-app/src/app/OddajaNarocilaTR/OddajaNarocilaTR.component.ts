@@ -22,7 +22,7 @@ export class OddajaNarocilaTRComponent {
   private allPostnaEnota;
 
   private narocilo;
-  private postnaenota;
+  private postnaEnota;
 
   private OddajaNarocilaObj;
 
@@ -47,9 +47,9 @@ export class OddajaNarocilaTRComponent {
 
   ngOnInit(): void {
     this.transactionFrom  = true;
-    this.loadAllNarocila()
+    this.loadAllPostnaEnota()
     .then(() => {                     
-            this.loadAllPostnaEnota();
+            this.loadAllNarocila();
     });    
   }
 
@@ -83,8 +83,8 @@ export class OddajaNarocilaTRComponent {
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(postnaenota => {
-        tempList.push(postnaenota);
+      result.forEach(postnaEnota => {
+        tempList.push(postnaEnota);
       });
       this.allPostnaEnota = tempList;
     })
@@ -106,16 +106,16 @@ export class OddajaNarocilaTRComponent {
     console.log(this.allNarocila);
     console.log(this.allPostnaEnota);
 
-    for (let postnaenota of this.allPostnaEnota) {
-      console.log(postnaenota.posiljkaID);
-      if(postnaenota.postnaEnotaID == this.formPostnaEnotaID.value){
-        this.postnaenota = postnaenota;
+    for (let postnaEnota of this.allPostnaEnota) {
+      console.log(postnaEnota.naziv);
+      if(postnaEnota.naziv == this.formPostnaEnotaID.value){
+        this.postnaEnota = postnaEnota;
       }
     }
 
     for (let narocilo of this.allNarocila) {
-      console.log(narocilo.postarID);
-      if(narocilo.postarID == this.formNarociloID.value){
+      console.log(narocilo.narociloID);
+      if(narocilo.narociloID == this.formNarociloID.value){
         this.narocilo = narocilo;
       }
     }
@@ -127,7 +127,7 @@ export class OddajaNarocilaTRComponent {
     this.OddajaNarocilaObj = {
       $class: "org.feri.model.OddajaNarocila",
       "narocilo": this.formNarociloID.value,
-      "postnaenota": this.formPostnaEnotaID.value,
+      "postnaEnota": this.formPostnaEnotaID.value
     };
 
     return this.serviceTransaction.OddajaNarocila(this.OddajaNarocilaObj)
