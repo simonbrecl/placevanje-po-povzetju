@@ -9,12 +9,12 @@
           <div class="modal-body">
   
                 <div class="form-group text-left">
-                  <label for="ime">ime</label>
+                  <label for="ime">Ime</label>
                     <input formControlName="ime" type="text" class="form-control">  
                 </div>
                 
                 <div class="form-group text-left">
-                  <label for="priimek">priimek</label>
+                  <label for="priimek">Priimek</label>
                     <input formControlName="priimek" type="text" class="form-control">  
                 </div>
 
@@ -35,24 +35,24 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="updatePostarModalLabel">Update Asset</h4>
+          <h4 class="modal-title" id="updatePostarModalLabel">Posodobi poštarja</h4>
         </div>
         <form [formGroup]="myForm">
           <div class="modal-body">
   
               <div class="form-group text-left">
-                <label for="ime">ime</label>
+                <label for="ime">Ime</label>
                   <input [ngModel]="ime"formControlName="ime" type="text" class="form-control">
               </div>
             
               <div class="form-group text-left">
-                <label for="priimek">priimek</label>
+                <label for="priimek">Priimek</label>
                   <input [ngModel]="priimek"formControlName="priimek" type="text" class="form-control">
               </div>
             
           </div>
           <div class="modal-footer">
-            <button (click)="updatePostar(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Potrdi</button>
+            <button (click)="updatePostar(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Posodobi</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
           </div>
         </form>
@@ -65,15 +65,15 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="deletePostarModalLabel">Zbrisi</h4>
+          <h4 class="modal-title" id="deletePostarModalLabel">Izbriši</h4>
         </div>
         <form [formGroup]="myForm" (ngSubmit)="deletePostar()">
           <div class="modal-body">
-            Are you sure you want to delete this asset?
+            Res zelite izbrisati poštarja?
           </div>
           <div class="modal-footer">
-            <button (click)="deletePostar()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            <button (click)="deletePostar()" type="submit" class="btn btn-danger" data-dismiss="modal">Da</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
           </div>
         </form>
       </div>
@@ -84,10 +84,10 @@
       <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
           <strong>Error:</strong> {{errorMessage}}
       </div>
-    <h1 id='assetName'>Postar</h1>
+    <h1 id='assetName'>Poštar</h1>
     <div class="row">
       <div class="col-md-12 text-right">
-        <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPostarModal">Dodaj postarja</button>
+        <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPostarModal">Dodaj poštarja</button>
       </div>
     </div>
     <br>
@@ -99,11 +99,11 @@
               
                   <th class="info">postarID</th>
     
-                  <th class="info">ime</th>
+                  <th class="info">Ime</th>
 
-                  <th class="info">priimek</th>
+                  <th class="info">Priimek</th>
                             
-                <th class="info">možnosti</th>
+                <th class="info">Možnosti</th>
             </tr>
           </thead>
           <tbody>
@@ -119,7 +119,7 @@
               <td>
                 <button (click)="getForm(postar.postarID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updatePostarModal">Posodobi</button>
   
-                <button (click)="setId(postar.postarID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostarModal">Zbrisi</button>
+                <button (click)="setId(postar.postarID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletePostarModal">Izbrisi</button>
               </td>
             </tr>
           </tbody>

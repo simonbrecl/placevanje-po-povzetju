@@ -19,7 +19,7 @@ export class PrevzemNaPostniEnotiTRComponent {
 
   private allPosiljke;
 
-  private posiljkaa;
+  private posiljka;
 
   private PrevzemNaPostniEnotiObj;
 
@@ -27,7 +27,7 @@ export class PrevzemNaPostniEnotiTRComponent {
 
     formPosiljkaID = new FormControl("", Validators.required);
     action = new FormControl("", Validators.required);
-	value = new FormControl("", Validators.required);
+	  value = new FormControl("", Validators.required);
 
   constructor(private serviceTransaction:PrevzemNaPostniEnotiTRService, fb: FormBuilder) {
 
@@ -41,12 +41,8 @@ export class PrevzemNaPostniEnotiTRComponent {
   };
 
   ngOnInit(): void {
-    this.transactionFrom  = false;
-    this.loadAllPosiljke()
-    .then(() => {                     
-            this.transactionFrom  = true;
-    });
-
+    this.transactionFrom  = true;
+    this.loadAllPosiljke();
   }
 
   loadAllPosiljke(): Promise<any> {
@@ -73,6 +69,7 @@ export class PrevzemNaPostniEnotiTRComponent {
     });
   }
 
+
   execute(form: any): Promise<any> {
 
     console.log(this.allPosiljke);
@@ -80,9 +77,10 @@ export class PrevzemNaPostniEnotiTRComponent {
     for (let posiljka of this.allPosiljke) {
       console.log(posiljka.posiljkaID);
       if(posiljka.posiljkaID == this.formPosiljkaID.value){
-        this.posiljkaa = posiljka;
+        this.posiljka = posiljka;
       }
     }
+
 
     console.log('Action: ' + this.action.value)
 
@@ -92,7 +90,6 @@ export class PrevzemNaPostniEnotiTRComponent {
       $class: "org.feri.model.PrevzemNaPostniEnoti",
       "posiljka": this.formPosiljkaID.value,
       "namenStranke": this.action.value
-
     };
 
     return this.serviceTransaction.PrevzemNaPostniEnoti(this.PrevzemNaPostniEnotiObj)

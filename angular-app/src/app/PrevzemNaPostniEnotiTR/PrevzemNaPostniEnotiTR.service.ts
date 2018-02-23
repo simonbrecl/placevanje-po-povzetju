@@ -9,6 +9,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class PrevzemNaPostniEnotiTRService {
 
+	private POSTAR: string = 'Postar';
     private POSILJKA: string = 'Posiljka';
     private PREVZEM_NA_POSTNI_ENOTI: string = 'PrevzemNaPostniEnoti';
 
